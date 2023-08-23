@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from "next/image"
 
 import Header from '../components/Header'
+import Sidebar from '../components/Sidebar';
 
 export default function Home() {
     return (
@@ -15,7 +16,8 @@ export default function Home() {
 
             <main className='bg-gray-100 min-h-screen'>
                 
-            <Header/>
+            <Header />
+            <Sidebar/> 
             </main>
 
         </>
