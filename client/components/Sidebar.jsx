@@ -47,7 +47,7 @@ const Sidebar = ({ children }) => {
             </div>
           </Link>
           </Tooltip>
-          <Tooltip text="Warranty">
+          <Tooltip text="Jobs">
           <Link href='/'>
             <div className='bg-gray-100 hover:bg-gray-200 cursor-pointer my-4 p-3 rounded-lg inline-block'>
               <FaShieldHalved size={20} />
