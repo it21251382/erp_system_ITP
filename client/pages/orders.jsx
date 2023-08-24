@@ -30,7 +30,7 @@ const orders = () => {
                   </div>
                   <div className='pl-4'>
                     <p className='text-gray-800 font-bold'>
-                      ${order.total.toLocaleString()}
+                      Rs.{order.total.toLocaleString()}
                     </p>
                     <p className='text-gray-800 text-sm'>{order.name.first}</p>
                   </div>
