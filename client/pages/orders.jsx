@@ -8,7 +8,7 @@ import {
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { data } from "../data/order.js";
 import TabBar from "../components/TabBar"; // Update the path
-import SignInCard from "@/components/ui/formCards/SignInCard.jsx";
+import SignInCard from "@/components/ui/formCards/inventory_form.jsx";
 
 const Orders = () => {
   const [selectedTab, setSelectedTab] = useState("Invoice"); // Default selected tab

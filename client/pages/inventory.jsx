@@ -3,15 +3,16 @@ import { FaCubes, FaPlus, FaTrash, FaFileInvoiceDollar } from "react-icons/fa";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { data } from "../data/inventory.js";
 import TabBar from "../components/TabBar"; // Update the path
-import SignInCard from "@/components/ui/formCards/SignInCard.jsx";
+import { FaCubesStacked } from "react-icons/fa6";
+import InventoryForm from "@/components/ui/formCards/InventoryForm.jsx";
 
 const Orders = () => {
-  const [selectedTab, setSelectedTab] = useState("Invoice"); // Default selected tab
+  const [selectedTab, setSelectedTab] = useState("Inventory"); // Default selected tab
 
   const tabs = [
-    { tab: "Invoice", icon: <FaFileInvoiceDollar /> },
-    { tab: "Add Order", icon: <FaPlus /> },
-    { tab: "Delete Order", icon: <FaTrash /> },
+    { tab: "Inventory", icon: <FaCubesStacked /> },
+    { tab: "Add Products", icon: <FaPlus /> },
+    { tab: "Delete Products", icon: <FaTrash /> },
   ];
 
   return (
@@ -26,7 +27,7 @@ const Orders = () => {
         onSelectTab={setSelectedTab}
       />
       <div className="p-4">
-        {selectedTab === "Invoice" && (
+        {selectedTab === "Inventory" && (
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
             <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
               <div className="my-3 p-2 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer">
@@ -72,12 +73,12 @@ const Orders = () => {
             </div>
           </div>
         )}
-        {selectedTab === "Add Order" && (
+        {selectedTab === "Add Products" && (
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
-            <SignInCard />
+            < InventoryForm/>
           </div>
         )}
-        {selectedTab === "Delete Order" && (
+        {selectedTab === "Delete Products" && (
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
             {/* ... Your delete order content */}
           </div>
