@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SupplierForm =()=>{
+const JobForm =()=>{
     return (
         <div>
             <h1>Hello There</h1>
@@ -8,4 +8,4 @@ const SupplierForm =()=>{
     )
 }
 
-export default SupplierForm;
+export default JobForm;

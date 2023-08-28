@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaCubes, FaPlus, FaTrash, FaFileInvoiceDollar } from "react-icons/fa";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import { data } from "../data/inventory.js";
+import { data } from "@/data/inventory";
 import TabBar from "../components/TabBar"; // Update the path
 import { FaCubesStacked } from "react-icons/fa6";
 import InventoryForm from "@/components/ui/formCards/InventoryForm.jsx";
@@ -42,7 +42,9 @@ const Orders = () => {
                     key={id}
                     className="bg-gray-50 hover:bg-gray-100 rounded-lg my-3 p-2 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer"
                   >
-                    <div className="flex">
+                    <div className="flex"   onClick={() => {
+                        console.log('Section clicked!');
+                    }}>
                       <div className="bg-purple-100 p-3 rounded-lg">
                         <FaCubes className="text-purple-800" />
                       </div>
