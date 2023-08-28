@@ -8,15 +8,15 @@ import {
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { data } from "../data/order.js";
 import TabBar from "../components/TabBar";
-import InvoiceForm from "@/components/ui/formCards/InvoiceForm"; // Update the path
+import InvoiceForm from "@/components/ui/formCards/OrderForm.jsx"; // Update the path
 
 const Orders = () => {
-  const [selectedTab, setSelectedTab] = useState("Invoice"); // Default selected tab
+  const [selectedTab, setSelectedTab] = useState("Order"); // Default selected tab
 
   const tabs = [
-    { tab: "Invoice", icon: <FaFileInvoiceDollar /> },
+    { tab: "Order", icon: <FaFileInvoiceDollar /> },
     { tab: "Add Order", icon: <FaPlus /> },
-    { tab: "Delete Order", icon: <FaTrash /> },
+    // { tab: "Function Order", icon: <FaTrash /> },
   ];
 
   return (
@@ -31,7 +31,7 @@ const Orders = () => {
         onSelectTab={setSelectedTab}
       />
       <div className="p-4">
-        {selectedTab === "Invoice" && (
+        {selectedTab === "Order" && (
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
             <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
               <div className="my-3 p-2 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer">

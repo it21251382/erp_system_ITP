@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import { FaCubes, FaPlus, FaTrash, FaFileInvoiceDollar } from "react-icons/fa";
+import { FaPlus, FaTrash, FaRegIdCard } from "react-icons/fa";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { data } from "@/data/employee";
 import TabBar from "../components/TabBar"; // Update the path
-import { FaCubesStacked } from "react-icons/fa6";
+import { FaRegFaceGrinWide } from "react-icons/fa6";
 import EmployeeForm from "@/components/ui/formCards/EmployeeForm";
 
 const Orders = () => {
   const [selectedTab, setSelectedTab] = useState("Employees"); // Default selected tab
 
   const tabs = [
-    { tab: "Employees", icon: <FaCubesStacked /> },
+    { tab: "Employees", icon: <FaRegIdCard /> },
     { tab: "Add Employee", icon: <FaPlus /> },
-    { tab: "Delete Products", icon: <FaTrash /> },
+    // { tab: "Delete Products", icon: <FaTrash /> },
   ];
 
   return (
@@ -31,10 +31,10 @@ const Orders = () => {
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
             <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
               <div className="my-3 p-2 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer">
-                <span className="font-bold">Name</span>
-                <span className="sm:text-left text-right font-bold">SKU</span>
-                <span className="hidden md:grid font-bold">Stock On Hand</span>
-                <span className="hidden sm:grid font-bold">Reorder level</span>
+                <span className="font-bold">Name & Dep</span>
+                <span className="sm:text-left text-right font-bold">Phone-num</span>
+                <span className="hidden md:grid font-bold">Email</span>
+                <span className="hidden sm:grid font-bold">NIC</span>
               </div>
               <ul>
                 {data.map((employee, id) => (
@@ -46,7 +46,7 @@ const Orders = () => {
                         console.log('Section clicked!');
                     }}>
                       <div className="bg-purple-100 p-3 rounded-lg">
-                        <FaCubes className="text-purple-800" />
+                        <FaRegFaceGrinWide className="text-purple-800" />
                       </div>
                       <div className="pl-4">
                         <p className="text-gray-800 font-bold">
@@ -75,12 +75,12 @@ const Orders = () => {
             </div>
           </div>
         )}
-        {selectedTab === "Add Products" && (
+        {selectedTab === "Add Employee" && (
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
             < EmployeeForm/>
           </div>
         )}
-        {selectedTab === "Delete Products" && (
+        {selectedTab === "Delete Employee" && (
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
             {/* ... Your delete order content */}
           </div>

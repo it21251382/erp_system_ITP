@@ -12,7 +12,7 @@ const Orders = () => {
   const tabs = [
     { tab: "Suppliers", icon: <FaBoxOpen /> },
     { tab: "Add Suppliers", icon: <FaPlus /> },
-    { tab: "Delete Suppliers", icon: <FaTrash /> },
+    // { tab: "Delete Suppliers", icon: <FaTrash /> },
   ];
 
   return (

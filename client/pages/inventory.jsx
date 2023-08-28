@@ -12,7 +12,7 @@ const Orders = () => {
   const tabs = [
     { tab: "Inventory", icon: <FaCubesStacked /> },
     { tab: "Add Products", icon: <FaPlus /> },
-    { tab: "Delete Products", icon: <FaTrash /> },
+    // { tab: "Delete Products", icon: <FaTrash /> },
   ];
 
   return (
