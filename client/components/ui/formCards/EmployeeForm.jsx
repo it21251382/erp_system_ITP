@@ -4,19 +4,19 @@ const EmployeeForm = () => {
   return (
     <div>
       <form className="space-y-4" action="#">
-        <h5 className="text-xl font-medium text-black-500">Product Information</h5>
+        <h5 className="text-xl font-medium text-black-500">Employee Information</h5>
         <div>
           <label
             for="name"
             className="block mb-1 text-sm font-medium text-black-500"
           >
-            Product name *
+            Employee name
           </label>
           <input
             type="text"
             name="name"
             id="name"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5"
             required
           />
         </div>
@@ -25,14 +25,43 @@ const EmployeeForm = () => {
             for="sku"
             className="block mb-1 text-sm font-medium text-black-500"
           >
-            SKU *
+           Phone-num
           </label>
           <input
             type="text"
             name="sku"
             id="sku"
-            placeholder="SSD-007"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-50 p-2.5"
+            required
+          />
+        </div>
+        <div>
+          <label
+            for="sku"
+            className="block mb-1 text-sm font-medium text-black-500"
+          >
+            NIC
+          </label>
+          <input
+            type="text"
+            name="sku"
+            id="sku"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-60 p-2.5"
+            required
+          />
+        </div>
+        <div>
+          <label
+            for="sku"
+            className="block mb-1 text-sm font-medium text-black-500"
+          >
+            Address
+          </label>
+          <input
+            type="text"
+            name="sku"
+            id="sku"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5"
             required
           />
         </div>
@@ -41,43 +70,25 @@ const EmployeeForm = () => {
             id="countries"
             className="flex-grow bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-white-700 dark:border-white-600 dark:placeholder-grey-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
-            <option>Parent category</option>
-            <option>Laptops</option>
-            <option>Desktops</option>
-            <option>Storage</option>
-          </select>
-          <select
-            id="countries"
-            className="flex-grow bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-white-700 dark:border-white-600 dark:placeholder-grey-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          >
-            <option>Child category</option>
-            <option>Gaming</option>
-            <option>Productivity</option>
-            <option>Workstation</option>
+            <option>Department</option>
+            <option>Accounting</option>
+            <option>Technician</option>
+            <option>Sales</option>
+            <option>HR</option>
           </select>
         </div>
-        <div>
-          <textarea
-            id="description"
-            rows="4"
-            className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-white-700 dark:border-white-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Product description..."
-          ></textarea>
-        </div>
-
         <div className="flex space-x-4">
           <div className="w-full">
             <label
               htmlFor="cost"
               className="block mb-1 text-sm font-medium text-black-500"
             >
-              Cost per unit *
+              E-mail
             </label>
             <input
-              type="number"
+              type="email"
               name="cost"
               id="cost"
-              placeholder="Rs."
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               required
             />
@@ -88,67 +99,18 @@ const EmployeeForm = () => {
               htmlFor="price"
               className="block mb-1 text-sm font-medium text-black-500"
             >
-              Selling price per unit *
+              Password
             </label>
             <input
-              type="number"
+              type="password"
               name="price"
               id="price"
-              placeholder="Rs."
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              required
-            />
-          </div>
-
-          <div className="w-full">
-            <label
-              htmlFor="price"
-              className="block mb-1 text-sm font-medium text-black-500"
-            >
-              Warranty *
-            </label>
-            <input
-              type="number"
-              name="price"
-              id="price"
-              placeholder="days"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               required
             />
           </div>
         </div>
-
-        <div>
-          <label
-            for="stock_in_hand"
-            className="block mb-1 text-sm font-medium text-black-500"
-          >
-            Stock in hand *
-          </label>
-          <input
-            type="number"
-            name="stock_in_hand"
-            id="stock_in_hand"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-            required
-          />
-        </div>
-
-        <div>
-          <label
-            for="reorder_level"
-            className="block mb-1 text-sm font-medium text-black-500"
-          >
-            Reorder level *
-          </label>
-          <input
-            type="number"
-            name="reorder_level"
-            id="reorder_level"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-            required
-          />
-        </div>
+        
 
         <button
           type="submit"

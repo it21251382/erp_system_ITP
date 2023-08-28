@@ -5,13 +5,13 @@ import { data } from "@/data/job";
 import TabBar from "../components/TabBar"; // Update the path
 import JobForm from "@/components/ui/formCards/JobForm";
 
-const Orders = () => {
+const Jobs = () => {
   const [selectedTab, setSelectedTab] = useState("Jobs"); // Default selected tab
 
   const tabs = [
     { tab: "Jobs", icon: <FaScroll /> },
     { tab: "Create Job", icon: <FaPlus /> },
-    { tab: "Delete Job", icon: <FaTrash /> },
+    // { tab: "Delete Job", icon: <FaTrash /> },
   ];
 
   return (
@@ -74,12 +74,12 @@ const Orders = () => {
             </div>
           </div>
         )}
-        {selectedTab === "Add Products" && (
+        {selectedTab === "Create Job" && (
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
             < JobForm/>
           </div>
         )}
-        {selectedTab === "Delete Products" && (
+        {selectedTab === "Create Job" && (
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
             {/* ... Your delete order content */}
           </div>
@@ -89,4 +89,4 @@ const Orders = () => {
   );
 };
 
-export default Orders;
+export default Jobs;

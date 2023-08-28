@@ -6,7 +6,7 @@ import TabBar from "../components/TabBar"; // Update the path
 import { FaRegFaceGrinWide } from "react-icons/fa6";
 import EmployeeForm from "@/components/ui/formCards/EmployeeForm";
 
-const Orders = () => {
+const Employees = () => {
   const [selectedTab, setSelectedTab] = useState("Employees"); // Default selected tab
 
   const tabs = [
@@ -90,4 +90,4 @@ const Orders = () => {
   );
 };
 
-export default Orders;
+export default Employees;

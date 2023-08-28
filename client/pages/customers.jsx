@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import { FaCubes, FaPlus, FaTrash, FaFileInvoiceDollar } from "react-icons/fa";
+import { FaCubes, FaPlus, FaTrash, FaFileInvoiceDollar, FaFrog, FaIdBadge } from "react-icons/fa";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { data } from "@/data/customer";
 import TabBar from "../components/TabBar"; // Update the path
 import { FaCubesStacked } from "react-icons/fa6";
 import CustomerForm from "@/components/ui/formCards/CustomerForm";
 
-const Orders = () => {
+const Customer = () => {
   const [selectedTab, setSelectedTab] = useState("Customer"); // Default selected tab
 
   const tabs = [
-    { tab: "Customer", icon: <FaCubesStacked /> },
+    { tab: "Customer", icon: <FaFrog /> },
     { tab: "Add Customer", icon: <FaPlus /> },
-    { tab: "Delete Customer", icon: <FaTrash /> },
+    // { tab: "Delete Customer", icon: <FaTrash /> },
   ];
 
   return (
@@ -46,7 +46,7 @@ const Orders = () => {
                         console.log('Section clicked!');
                     }}>
                       <div className="bg-purple-100 p-3 rounded-lg">
-                        <FaCubes className="text-purple-800" />
+                        <FaIdBadge className="text-purple-800" />
                       </div>
                       <div className="pl-4">
                         <p className="text-gray-800 font-bold">
@@ -90,4 +90,4 @@ const Orders = () => {
   );
 };
 
-export default Orders;
+export default Customer;

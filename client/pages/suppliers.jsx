@@ -31,10 +31,10 @@ const Orders = () => {
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
             <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
               <div className="my-3 p-2 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer">
-                <span className="font-bold">Name</span>
-                <span className="sm:text-left text-right font-bold">SKU</span>
-                <span className="hidden md:grid font-bold">Stock On Hand</span>
-                <span className="hidden sm:grid font-bold">Reorder level</span>
+                <span className="font-bold">Name & Category</span>
+                <span className="sm:text-left text-right font-bold">Phone</span>
+                <span className="hidden md:grid font-bold">E-mail</span>
+                <span className="hidden sm:grid font-bold">Address</span>
               </div>
               <ul>
                 {data.map((supplier, id) => (
