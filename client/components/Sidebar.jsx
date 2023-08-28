@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaCashRegister, FaChartColumn, FaUserGroup, FaUserTie, FaDolly, FaHandsHoldingCircle, FaShieldHalved } from "react-icons/fa6";
+import { FaCashRegister, FaChartColumn, FaUserGroup, FaUserTie, FaDolly, FaHandsHoldingCircle, FaTachographDigital } from "react-icons/fa6";
 import Tooltip from './Tooltip';
 
 
@@ -34,23 +34,23 @@ const Sidebar = ({ children }) => {
           </Link>
           </Tooltip>
           <Tooltip text="Supplier">
-          <Link href='/'>
+          <Link href='/suppliers'>
             <div className='bg-gray-100 hover:bg-gray-200 cursor-pointer my-4 p-3 rounded-lg inline-block'>
               <FaHandsHoldingCircle size={20} />
             </div>
           </Link>
           </Tooltip>
           <Tooltip text="Employees">
-          <Link href='/'>
+          <Link href='/employees'>
             <div className='bg-gray-100 hover:bg-gray-200 cursor-pointer my-4 p-3 rounded-lg inline-block'>
               <FaUserTie size={20} />
             </div>
           </Link>
           </Tooltip>
           <Tooltip text="Jobs">
-          <Link href='/'>
+          <Link href='/jobs'>
             <div className='bg-gray-100 hover:bg-gray-200 cursor-pointer my-4 p-3 rounded-lg inline-block'>
-              <FaShieldHalved size={20} />
+              <FaTachographDigital size={20} />
             </div>
           </Link>
           </Tooltip>

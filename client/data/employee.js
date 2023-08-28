@@ -1,0 +1,86 @@
+export const data = [
+  {
+    id: 1,
+    details: {
+      name: "Chandra",
+      phone: "0548456539",
+      nic: "1001658795",
+      address: "231/6 baker avenue, lil london",
+    },
+    department: "Customer Service",
+    email: "chandra.itmind@gmail.com",
+    password: "******",
+  },
+  {
+    id: 2,
+    details: {
+      name: "Alex",
+      phone: "0712345678",
+      nic: "2001789456",
+      address: "456 Main Street, Sunnyville",
+    },
+    department: "Sales",
+    email: "alex123@email.com",
+    password: "*******",
+  },
+  {
+    id: 2,
+    details: {
+      name: "Amanda",
+      phone: "0897462385",
+      nic: "2003746921",
+      address: "456 Willow Street, Oakville",
+    },
+    department: "Technician",
+    email: "amanda23@emailprovider.com",
+    password: "******",
+  },
+  {
+    id: 3,
+    details: {
+      name: "John",
+      phone: "0457821934",
+      nic: "3501293847",
+      address: "789 Elm Avenue, Springfield",
+    },
+    department: "Sales",
+    email: "john_doe@example.com",
+    password: "******",
+  },
+  {
+    id: 4,
+    details: {
+      name: "Samantha",
+      phone: "0762415873",
+      nic: "4806729134",
+      address: "542 Pine Street, Willowbrook",
+    },
+    department: "Web Developer",
+    email: "samantha88@mailservice.net",
+    password: "******",
+  },
+  {
+    id: 5,
+    details: {
+      name: "Alex",
+      phone: "0326958741",
+      nic: "5902385610",
+      address: "987 Cedar Road, Brookside",
+    },
+    department: "Web Developer",
+    email: "alexsmith@email.com",
+    password: "******",
+  },
+  {
+    id: 6,
+    details: {
+      name: "Emily",
+      phone: "0761043258",
+      nic: "6709154823",
+      address: "234 Birch Lane, Sunnyside",
+    },
+    department: "Book-keeper",
+    email: "emily_jones@examplemail.org",
+    password: "******",
+  },
+];
