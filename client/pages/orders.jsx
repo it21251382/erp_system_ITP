@@ -37,7 +37,7 @@ const Orders = () => {
               <div className="my-3 p-2 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer">
                 <span>Order</span>
                 <span className="sm:text-left text-right">Status</span>
-                <span className="hidden md:grid">Last Order</span>
+                <span className="hidden md:grid">Order Date</span>
                 <span className="hidden sm:grid">Method</span>
               </div>
               <ul>
