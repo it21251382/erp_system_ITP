@@ -33,7 +33,7 @@ app.use("/employee", employeeRoutes); // Employee management
 app.use("/job", jobRoute); // Job management
 app.use("/customer", customerRoutes); // Customer relation
 app.use("/general", generalRoutes); // Dashboard
-app.use("/commerce", commerceRoutes); // ecommerce ??
+app.use("/commerce", commerceRoutes); // ecommerce ?
 
 // Mongoose setup
 const PORT = process.env.PORT || 9000;
@@ -48,3 +48,9 @@ mongoose
     );
   })
   .catch((error) => console.log(`${error} did not connect`));
+
+app.get("/", (req, res) => {
+  res.send("Hello There!");
+});
+
+
