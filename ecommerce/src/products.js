@@ -5,7 +5,7 @@ import product3 from "./assets/products/3.bmp";
 export const PRODUCTS = [
   {
     id: 1,
-    productName: "Western Digital SATA SSD",
+    productName: "WD SATA SSD",
     price: 69.0,
     productImage: product1,
   },
