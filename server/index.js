@@ -12,6 +12,7 @@ import employeeRoutes from "./routes/employee.js";
 import jobRoute from "./routes/job.js";
 import customerRoutes from "./routes/customer.js";
 import generalRoutes from "./routes/general.js";
+import ecomPortalRoutes from './routes/ecom-portal.js'
 import commerceRoutes from "./routes/commerce.js";
 
 // Configs
@@ -33,6 +34,7 @@ app.use("/employee", employeeRoutes); // Employee management
 app.use("/job", jobRoute); // Job management
 app.use("/customer", customerRoutes); // Customer relation
 app.use("/general", generalRoutes); // Dashboard
+app.use("/ecom-portal", ecomPortalRoutes); // Ecom & Portal connecting route
 app.use("/commerce", commerceRoutes); // ecommerce ?
 
 // Mongoose setup

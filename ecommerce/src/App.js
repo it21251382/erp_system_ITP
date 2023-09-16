@@ -13,6 +13,9 @@ function App() {
       <ShopContextProvider>
         <Router>
           <Navbar />
+          <a href="http://localhost:3002" target="_blank">
+            <button>Go to Portals</button>
+          </a>
           <Routes>
             <Route path="/" element={<Shop />} />
             <Route path="/contact" element={<Contact />} />
@@ -21,6 +24,9 @@ function App() {
           </Routes>
         </Router>
       </ShopContextProvider>
+
+
+
     </div>
   );
 }
