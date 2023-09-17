@@ -14,6 +14,7 @@ import customerRoutes from "./routes/customer.js";
 import generalRoutes from "./routes/general.js";
 import ecomPortalRoutes from './routes/ecom-portal.js'
 import commerceRoutes from "./routes/commerce.js";
+import inventory from "./models/inventory.js";
 
 // Configs
 dotenv.config();
@@ -28,7 +29,7 @@ app.use(cors());
 
 // Routes
 app.use("/order", orderRoutes); // Order management
-app.use("/inventory", inventoryRoutes); //Inventory management
+app.use("/api/v1/inventory", inve); //Inventory management
 app.use("/supplier", supllierRoutes); // Supplier managemenr
 app.use("/employee", employeeRoutes); // Employee management
 app.use("/job", jobRoute); // Job management
