@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 import helmet from "helmet";
 import morgan from "morgan";
 import orderRoutes from "./routes/order.js";
-import inventoryRoutes from "./routes/inventory.js";
+import inventory from "./routes/inventory.js";
 import supllierRoutes from "./routes/supplier.js";
 import employeeRoutes from "./routes/employee.js";
 import jobRoute from "./routes/job.js";
@@ -14,7 +14,6 @@ import customerRoutes from "./routes/customer.js";
 import generalRoutes from "./routes/general.js";
 import ecomPortalRoutes from './routes/ecom-portal.js'
 import commerceRoutes from "./routes/commerce.js";
-import inventory from "./models/inventory.js";
 
 // Configs
 dotenv.config();
@@ -29,7 +28,7 @@ app.use(cors());
 
 // Routes
 app.use("/order", orderRoutes); // Order management
-app.use("/api/v1/inventory", inve); //Inventory management
+app.use("/api/v1/inventory", inventory); //Inventory management
 app.use("/supplier", supllierRoutes); // Supplier managemenr
 app.use("/employee", employeeRoutes); // Employee management
 app.use("/job", jobRoute); // Job management
@@ -51,9 +50,5 @@ mongoose
     );
   })
   .catch((error) => console.log(`${error} did not connect`));
-
-app.get("/", (req, res) => {
-  res.send("Hello There!");
-});
 
 

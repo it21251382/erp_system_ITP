@@ -3,7 +3,6 @@ const router = express.Router();
 
 const { getAllInventory } = require("../controllers/inventory");
 
-router.route("/").get(getAllInventory).post(createTask);
-router.route("/:id").get(getTask).patch(updateTask).delete(deleteTask);
+router.route("/").get(getAllInventory);
 
 export default router;
