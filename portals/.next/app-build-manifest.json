@@ -1,20 +1,15 @@
 {
   "pages": {
-    "/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
-    ],
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
-    "/customer/page": [
+    "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/customer/page.js"
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
     ],
     "/customer/layout": [
       "static/chunks/webpack.js",
@@ -22,16 +17,21 @@
       "static/css/app/customer/layout.css",
       "static/chunks/app/customer/layout.js"
     ],
-    "/customer/dash/page": [
+    "/customer/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/customer/dash/page.js"
+      "static/chunks/app/customer/page.js"
     ],
     "/customer/dash/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/customer/dash/layout.css",
       "static/chunks/app/customer/dash/layout.js"
+    ],
+    "/customer/dash/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/customer/dash/page.js"
     ]
   }
 }
