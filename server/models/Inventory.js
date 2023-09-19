@@ -1,4 +1,3 @@
-// Incomplete (Need to add more to the db)
 mongoose = require("mongoose")
 
 // Setting schema
