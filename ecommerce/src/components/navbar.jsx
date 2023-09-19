@@ -9,7 +9,6 @@ export const Navbar = () => {
       <div className="links">
         <Link to="/"> Shop </Link>
         <Link to="/contact"> Contact </Link>
-        <Link to="/login">Log-In</Link>
         <Link to="/cart">
           <ShoppingCart size={32} />
         </Link>
