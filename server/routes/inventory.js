@@ -5,6 +5,6 @@ import inventory from "../controllers/inventory"
 const getAllInventory  = inventory();
 
 
-router.route("/").get(getAllInventory);
+router.route("/").get(getAllInventory).set(setAllInventory);
 
 export default router;
