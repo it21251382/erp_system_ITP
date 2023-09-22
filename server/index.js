@@ -2,20 +2,25 @@
 import express from "express";
 import "dotenv/config";
 
-// File Routes
+// DB Connection
 import { connection } from "./database/connection.js";
+
+// Routing files
 import { inventoryRouter } from "./routes/inventory.js";
+import { orderRouter } from "./routes/order.js";
 
 // Configs
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send("<h1>ERP API</h1> <a href='/api/v1/inventory'>Inventory route</a>");
+  res.send(
+    "<h1>ERP API</h1> <a href='/api/v1/inventory'>Inventory route</a> <br> <a href='/api/v1/order'>Order route</a>"
+  );
 });
 
 // API Routes
-app.use('/api/v1/inventory', inventoryRouter)
-
+app.use("/api/v1/inventory", inventoryRouter);
+app.use("/api/v1/order", orderRouter);
 
 const port = process.env.PORT || 9000;
 

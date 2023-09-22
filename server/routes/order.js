@@ -1,5 +1,8 @@
 import express from "express";
+const orderRouter = express.Router();
 
-const router = express.Router();
+import { getAllOrder } from "../controllers/order.js";
 
-export default router;
+orderRouter.route("/").get(getAllOrder);
+
+export { orderRouter };
