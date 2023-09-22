@@ -4,13 +4,18 @@ import "dotenv/config";
 
 // File Routes
 import { connection } from "./database/connection.js";
+import { inventoryRouter } from "./routes/inventory.js";
 
 // Configs
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send("Hello, There!");
+  res.send("<h1>ERP API</h1> <a href='/api/v1/inventory'>Inventory route</a>");
 });
+
+// API Routes
+app.use('/api/v1/inventory', inventoryRouter)
+
 
 const port = process.env.PORT || 9000;
 

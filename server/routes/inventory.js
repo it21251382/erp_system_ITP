@@ -1,10 +1,9 @@
 import express from "express";
 const router = express.Router();
-import inventory from "../controllers/inventory"
 
-const getAllInventory  = inventory();
+import {getAllInventory, getAllInventoryTest} from "../controllers/inventory"
 
+router.route("/").get(getAllInventory)
+router.route("/test").get(getAllInventoryTest)
 
-router.route("/").get(getAllInventory).set(setAllInventory);
-
-export default router;
+export { router }
