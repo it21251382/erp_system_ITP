@@ -1,5 +1,8 @@
+import Inventory from "../models/inventory.js"
+
 const getAllInventory = async (req, res) => {
-  res.status(200).json({ msg: "Get All Inventory Route" });
+  const inventory = await Inventory.find({})
+  res.status(200).json({ inventory });
 };
 
 const getAllInventoryTest = async (req, res) => {
