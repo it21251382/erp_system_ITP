@@ -18,10 +18,6 @@ const app = express();
 app.use(express.static("./public"));
 app.use(express.json());
 
-// Custom error handlers
-app.use(notFound);
-app.use(errorHandlerMiddleware);
-
 app.get("/", (req, res) => {
   res.send(
     "<h1>ERP API</h1> <a href='/api/v1/inventory'>Inventory route</a> <br> <a href='/api/v1/order'>Order route</a>"
@@ -31,6 +27,10 @@ app.get("/", (req, res) => {
 // API Routes
 app.use("/api/v1/inventory", inventoryRouter);
 app.use("/api/v1/order", orderRouter);
+
+// Custom error handlers
+app.use(notFound);
+app.use(errorHandlerMiddleware);
 
 const port = process.env.PORT || 9000;
 
