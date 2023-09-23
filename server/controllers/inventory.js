@@ -7,8 +7,9 @@ const getAllInventory = asyncWrapper(async (req, res) => {
   res.status(200).json({ inventory });
 });
 
-const getAllInventoryTest = asyncWrapper(async (req, res) => {
-  res.status(200).json({ msg: "Get All Inventory Test Route" });
+const createInventory = asyncWrapper(async (req, res) => {
+  const inventory = await Inventory.create(req.body);
+  res.status(201).json({ inventory });
 });
 
-export { getAllInventory, getAllInventoryTest };
+export { getAllInventory, createInventory };
