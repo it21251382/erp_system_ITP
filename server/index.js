@@ -8,9 +8,19 @@ import { connection } from "./database/connection.js";
 // Routing files
 import { inventoryRouter } from "./routes/inventory.js";
 import { orderRouter } from "./routes/order.js";
+import { notFound } from "./middleware/not-found.js";
+import { errorHandlerMiddleware } from "./middleware/error-handler.js";
 
 // Configs
 const app = express();
+
+// Middlware
+app.use(express.static("./public"));
+app.use(express.json());
+
+// Custom error handlers
+app.use(notFound);
+app.use(errorHandlerMiddleware);
 
 app.get("/", (req, res) => {
   res.send(
