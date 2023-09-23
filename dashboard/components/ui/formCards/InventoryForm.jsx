@@ -10,7 +10,7 @@ const InventoryForm = () => {
             for="name"
             className="block mb-1 text-sm font-medium text-black-500"
           >
-            Product name *
+            Product name
           </label>
           <input
             type="text"
@@ -25,7 +25,7 @@ const InventoryForm = () => {
             for="sku"
             className="block mb-1 text-sm font-medium text-black-500"
           >
-            SKU *
+            SKU
           </label>
           <input
             type="text"
@@ -71,7 +71,7 @@ const InventoryForm = () => {
               htmlFor="cost"
               className="block mb-1 text-sm font-medium text-black-500"
             >
-              Cost per unit *
+              Cost per unit
             </label>
             <input
               type="number"
@@ -88,7 +88,7 @@ const InventoryForm = () => {
               htmlFor="price"
               className="block mb-1 text-sm font-medium text-black-500"
             >
-              Selling price per unit *
+              Selling price per unit
             </label>
             <input
               type="number"
@@ -105,7 +105,7 @@ const InventoryForm = () => {
               htmlFor="price"
               className="block mb-1 text-sm font-medium text-black-500"
             >
-              Warranty *
+              Warranty
             </label>
             <input
               type="number"
@@ -123,7 +123,7 @@ const InventoryForm = () => {
             for="stock_in_hand"
             className="block mb-1 text-sm font-medium text-black-500"
           >
-            Stock in hand *
+            Quantity
           </label>
           <input
             type="number"
@@ -139,7 +139,7 @@ const InventoryForm = () => {
             for="reorder_level"
             className="block mb-1 text-sm font-medium text-black-500"
           >
-            Reorder level *
+            Reorder level
           </label>
           <input
             type="number"
