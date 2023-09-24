@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { FaCubes, FaPlus, FaTrash, FaFileInvoiceDollar } from "react-icons/fa";
-import { BsThreeDotsVertical } from "react-icons/bs";
+import { FaCubes, FaPlus } from "react-icons/fa";
+import InventoryDropdown from "@/components/ui/3_dot_dropdown/InventoryDropdown";
 import { data } from "@/data/inventory";
 import TabBar from "../components/TabBar"; // Update the path
 import { FaCubesStacked } from "react-icons/fa6";
@@ -67,7 +67,7 @@ const Orders = () => {
                     <p className="hidden md:flex">{inventory.stockOnHand}</p>
                     <div className="sm:flex hidden justify-between items-center">
                       <p>{inventory.reorderLevel}</p>
-                      <BsThreeDotsVertical />
+                      <InventoryDropdown />
                     </div>
                   </li>
                 ))}
