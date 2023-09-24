@@ -32,7 +32,11 @@ app.use("/api/v1/order", orderRouter);
 
 // Custom error handlers
 app.use(notFound);
-app.use(errorHandlerMiddleware);
+// app.use(errorHandlerMiddleware);
+app.use((err, req, res, next) => {
+  console.error(err);
+  errorHandlerMiddleware(err, req, res, next)
+})
 
 const port = process.env.PORT || 9000;
 
@@ -41,7 +45,7 @@ const start = async () => {
     await connection(process.env.MONGO_URI);
     app.listen(port, console.log(`Server is listening on port: ${port}...`));
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
