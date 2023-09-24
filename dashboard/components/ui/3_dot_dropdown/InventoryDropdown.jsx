@@ -13,7 +13,7 @@ const InventoryDropdown = () => {
     }
       
   return (
-    <div>
+    <div className="relative">
       <button
         id="dropdownMenuIconButton"
         data-dropdown-toggle="dropdownDots"
@@ -34,10 +34,12 @@ const InventoryDropdown = () => {
 
       {/* <!-- Dropdown menu --> */}
       <div
-        id="dropdownDots"
-        className={`z-10 ${
-          isDropdownOpen ? "" : "hidden"
-        } bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600`}
+        ref={dropdownRef}
+        className={`${
+          isDropdownOpen ? "block" : "hidden"
+        } absolute z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600`}
+        style={{ top: dropdownRef.current ? dropdownRef.current.offsetHeight + "px" : "auto" }}
+        onBlur={closeDropdown}
       >
         <ul
           className="py-2 text-sm text-gray-700 dark:text-gray-200"
