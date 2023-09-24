@@ -1,9 +1,44 @@
 import React from "react";
+import { useState } from "react";
+import { api } from "@/utils/api";
 
 const InventoryForm = () => {
+
+  const [formData, setFormData] = useState({
+    name: '',
+    sku: '',
+    description: '',
+    cost: '',
+    price: '',
+    warranty: '',
+    stock_in_hand: '',
+    reorder_level: '',
+  })
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+
+  try {
+    const response = await api.post('/v1/inventory', formData);
+
+    if (response.status === 201) {
+      // Data successfully posted to mongo
+      // Handle the response here
+      console.log('Data saved:', response.data.inventory);
+    } else {
+      // handle errors
+      console.error('Error:', response.data.error);
+    }
+  } catch (error) {
+    console.error('Error: ', error);
+  }
+}
+
+
   return (
     <div>
-      <form className="space-y-4" action="#">
+      <form className="space-y-4" onSubmit={handleSubmit} action="#">
         <h5 className="text-xl font-medium text-black-500">Product Information</h5>
         <div>
           <label
