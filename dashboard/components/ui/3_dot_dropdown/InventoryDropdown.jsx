@@ -1,17 +1,31 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 const InventoryDropdown = () => {
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const dropdownRef = useRef(null)
-    
-    function toggleDropdown() {
-        setIsDropdownOpen(!isDropdownOpen);
-      }
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
-    function closeDropdown() {
-        setIsDropdownOpen(false)
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
     }
-      
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  function toggleDropdown() {
+    setIsDropdownOpen(!isDropdownOpen);
+  }
+
+  function closeDropdown() {
+    setIsDropdownOpen(false);
+  }
+
   return (
     <div className="relative">
       <button
@@ -38,8 +52,7 @@ const InventoryDropdown = () => {
         className={`${
           isDropdownOpen ? "block" : "hidden"
         } absolute z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600`}
-        style={{ top: dropdownRef.current ? dropdownRef.current.offsetHeight + "px" : "auto" }}
-        onBlur={closeDropdown}
+        style={{ top: "100%" }}
       >
         <ul
           className="py-2 text-sm text-gray-700 dark:text-gray-200"
