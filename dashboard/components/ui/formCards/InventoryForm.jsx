@@ -20,7 +20,7 @@ const InventoryForm = () => {
   
 
   try {
-    const response = await api.post('/v1/inventory', formData);
+    const response = await api.post('/inventory', formData);
 
     if (response.status === 201) {
       // Data successfully posted to mongo

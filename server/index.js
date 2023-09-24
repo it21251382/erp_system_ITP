@@ -1,5 +1,6 @@
 // NPM Packages
 import express from "express";
+import cors from "cors";
 import "dotenv/config";
 
 // DB Connection
@@ -17,6 +18,7 @@ const app = express();
 // Middlware
 app.use(express.static("./public"));
 app.use(express.json());
+app.use(cors({ origin: "http://localhost:3001" }));
 
 app.get("/", (req, res) => {
   res.send(
