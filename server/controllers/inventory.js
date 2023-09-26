@@ -35,11 +35,20 @@ const updateInventory = asyncWrapper(async (req, res) => {
   );
   if (!inventory) {
     return next(
-      createCustomError(`No inventory with SKU : ${inventoryID}`, 404)
+      createCustomError(`No inventory item with SKU : ${inventoryID}`, 404)
     );
   }
 
   res.status(200).json({ task });
 });
 
-export { getAllInventory, createInventory, getInventory, updateInventory };
+const deleteInventory = asyncWrapper(async (req, res) => {
+  const { id: inventoryID } = req.params;
+  const inventory = await Inventory.findOneAndDelete({ _id: inventoryID });
+  if (!inventory) {
+    return next(createCustomError(`No inventory item with SKU : ${inventoryID}`, 404));
+  }
+  res.status(200).json({ inventory });
+});
+
+export { getAllInventory, createInventory, getInventory, updateInventory, deleteInventory };
