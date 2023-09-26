@@ -12,4 +12,34 @@ const createInventory = asyncWrapper(async (req, res) => {
   res.status(201).json({ inventory });
 });
 
-export { getAllInventory, createInventory };
+const getInventory = asyncWrapper(async (req, res, next) => {
+  const { id: inventoryID } = req.params;
+  const inventory = await Inventory.findOne({ sku: inventoryID });
+  if (!inventory) {
+    return next(
+      createCustomError(`No inventory item with SKU: ${inventoryID}`, 404)
+    );
+  }
+  res.status(200).json({ inventory });
+});
+
+const updateInventory = asyncWrapper(async (req, res) => {
+  const { id: inventoryID } = req.params;
+  const inventory = await Inventory.findOneAndUpdate(
+    { _id: inventoryID },
+    req.body,
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
+  if (!inventory) {
+    return next(
+      createCustomError(`No inventory with SKU : ${inventoryID}`, 404)
+    );
+  }
+
+  res.status(200).json({ task });
+});
+
+export { getAllInventory, createInventory, getInventory, updateInventory };
