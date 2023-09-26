@@ -26,7 +26,7 @@ const getInventory = asyncWrapper(async (req, res, next) => {
 const updateInventory = asyncWrapper(async (req, res) => {
   const { id: inventoryID } = req.params;
   const inventory = await Inventory.findOneAndUpdate(
-    { _id: inventoryID },
+    { sku: inventoryID },
     req.body,
     {
       new: true,
@@ -44,7 +44,7 @@ const updateInventory = asyncWrapper(async (req, res) => {
 
 const deleteInventory = asyncWrapper(async (req, res) => {
   const { id: inventoryID } = req.params;
-  const inventory = await Inventory.findOneAndDelete({ _id: inventoryID });
+  const inventory = await Inventory.findOneAndDelete({ sku: inventoryID });
   if (!inventory) {
     return next(createCustomError(`No inventory item with SKU : ${inventoryID}`, 404));
   }
