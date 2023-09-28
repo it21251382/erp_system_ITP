@@ -9,6 +9,7 @@ import { connection } from "./database/connection.js";
 // Routing files
 import { inventoryRouter } from "./routes/inventory.js";
 import { orderRouter } from "./routes/order.js";
+import { supplierRouter } from "./routes/supplier.js";
 import { notFound } from "./middleware/not-found.js";
 import { errorHandlerMiddleware } from "./middleware/error-handler.js";
 
@@ -29,6 +30,7 @@ app.get("/", (req, res) => {
 // API Routes
 app.use("/api/v1/inventory", inventoryRouter);
 app.use("/api/v1/order", orderRouter);
+app.use("/api/v1/supplier", supplierRouter)
 
 // Custom error handlers
 app.use(notFound);
