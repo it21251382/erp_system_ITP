@@ -12,3 +12,4 @@ const createSupplier = asyncWrapper(async (req, res) => {
   res.status(201).json({ supplier });
 });
 
+export { getAllSupplier, createSupplier };
