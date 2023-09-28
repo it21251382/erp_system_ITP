@@ -23,7 +23,7 @@ const getInventory = asyncWrapper(async (req, res, next) => {
   res.status(200).json({ inventory });
 });
 
-const updateInventory = asyncWrapper(async (req, res) => {
+const updateInventory = asyncWrapper(async (req, res, next) => {
   const { id: inventoryID } = req.params;
   const inventory = await Inventory.findOneAndUpdate(
     { sku: inventoryID },
@@ -39,7 +39,7 @@ const updateInventory = asyncWrapper(async (req, res) => {
     );
   }
 
-  res.status(200).json({ task });
+  res.status(200).json({ inventory });
 });
 
 const deleteInventory = asyncWrapper(async (req, res) => {
