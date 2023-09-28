@@ -1,6 +1,6 @@
 import Customer from "../models/customer.js";
 import { asyncWrapper } from "../middleware/async.js";
-import { createCustomError } from "../errors/custom-error";
+import { createCustomError } from "../errors/custom-error.js";
 
 const getAllCustomer = asyncWrapper(async (req, res) => {
   const customer = await Customer.find({});
