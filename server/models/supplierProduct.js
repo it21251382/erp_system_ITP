@@ -4,7 +4,7 @@ const SupplierProductSchema = new mongoose.Schema({
   sup_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Supplier",
-    required: true,
+    // required: true,
   },
   sup_pro_name: {
     type: String,
