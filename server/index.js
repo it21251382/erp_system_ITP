@@ -8,6 +8,7 @@ import { connection } from "./database/connection.js";
 
 // Routing files
 import { inventoryRouter } from "./routes/inventory.js";
+import { inventoryImportRouter } from "./routes/inventoryImport.js";
 import { orderRouter } from "./routes/order.js";
 import { supplierRouter } from "./routes/supplier.js";
 import { supplierProductRouter } from "./routes/supplierProduct.js";
@@ -32,11 +33,12 @@ app.get("/", (req, res) => {
 
 // API Routes
 app.use("/api/v1/inventory", inventoryRouter);
+app.use("/api/v1/inventory/import", inventoryImportRouter);
 app.use("/api/v1/order", orderRouter);
 app.use("/api/v1/supplier", supplierRouter);
 app.use("/api/v1/supplierProduct", supplierProductRouter);
 app.use("/api/v1/customer", customerRouter);
-app.use("/api/v1/job", jobRouter)
+app.use("/api/v1/job", jobRouter);
 
 // Custom error handlers
 app.use(notFound);
