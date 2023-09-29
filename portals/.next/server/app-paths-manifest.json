@@ -1,5 +1,3 @@
 {
-  "/page": "app/page.js",
-  "/supplier/page": "app/supplier/page.js",
   "/supplier/dash/page": "app/supplier/dash/page.js"
 }
