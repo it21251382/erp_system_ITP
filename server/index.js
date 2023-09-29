@@ -12,6 +12,7 @@ import { orderRouter } from "./routes/order.js";
 import { supplierRouter } from "./routes/supplier.js";
 import { supplierProductRouter } from "./routes/supplierProduct.js";
 import { customerRouter } from "./routes/customer.js";
+import { jobRouter } from "./routes/job.js";
 import { notFound } from "./middleware/not-found.js";
 import { errorHandlerMiddleware } from "./middleware/error-handler.js";
 
@@ -32,17 +33,18 @@ app.get("/", (req, res) => {
 // API Routes
 app.use("/api/v1/inventory", inventoryRouter);
 app.use("/api/v1/order", orderRouter);
-app.use("/api/v1/supplier", supplierRouter)
-app.use("/api/v1/supplierProduct", supplierProductRouter)
-app.use("/api/v1/customer", customerRouter)
+app.use("/api/v1/supplier", supplierRouter);
+app.use("/api/v1/supplierProduct", supplierProductRouter);
+app.use("/api/v1/customer", customerRouter);
+app.use("/api/v1/job", jobRouter)
 
 // Custom error handlers
 app.use(notFound);
 // app.use(errorHandlerMiddleware);
 app.use((err, req, res, next) => {
   console.error(err);
-  errorHandlerMiddleware(err, req, res, next)
-})
+  errorHandlerMiddleware(err, req, res, next);
+});
 
 const port = process.env.PORT || 9000;
 
