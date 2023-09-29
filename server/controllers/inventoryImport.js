@@ -30,3 +30,5 @@ const importInvFromSupPro = asyncWrapper(async (req, res) => {
 
   res.status(201).json({ message: "Inventort imported successfully" });
 });
+
+export { importInvFromSupPro };
