@@ -55,7 +55,7 @@ const Orders = () => {
                 <span className="hidden sm:grid font-bold">Address</span>
               </div>
               <ul>
-                {suppliers.map((supplier, id) => (
+                {suppliers.map((supplierItem, id) => (
                   <li
                     key={id}
                     className="bg-gray-50 hover:bg-gray-100 rounded-lg my-3 p-2 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer"
@@ -71,21 +71,21 @@ const Orders = () => {
                       </div>
                       <div className="pl-4">
                         <p className="text-gray-800 font-bold">
-                          {supplier.sup_name}
+                          {supplierItem.sup_name}
                         </p>
                         <p className="text-gray-800 text-sm">
-                          {supplier.sup_email}
+                          {supplierItem.sup_email}
                         </p>
                       </div>
                     </div>
                     <p className="text-gray-600 sm:text-left text-right">
                       <span className={"p-2 rounded-lg"}>
-                        {supplier.sup_phone}
+                        {supplierItem.sup_phone}
                       </span>
                     </p>
-                    <p className="hidden md:flex">{supplier.sup_email}</p>
+                    <p className="hidden md:flex">{supplierItem.sup_email}</p>
                     <div className="sm:flex hidden justify-between items-center">
-                      <p>{supplier.sup_address}</p>
+                      <p>{supplierItem.sup_address}</p>
                       <SupplierDropdown />
                     </div>
                   </li>
