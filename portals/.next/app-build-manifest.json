@@ -1,15 +1,21 @@
 {
   "pages": {
+    "/supplier/signUp/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/supplier/signUp/layout.css",
+      "static/chunks/app/supplier/signUp/layout.js"
+    ],
+    "/supplier/signUp/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/supplier/signUp/page.js"
+    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
-    ],
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
     ],
     "/supplier/layout": [
       "static/chunks/webpack.js",
@@ -27,17 +33,6 @@
       "static/chunks/main-app.js",
       "static/css/app/supplier/dash/layout.css",
       "static/chunks/app/supplier/dash/layout.js"
-    ],
-    "/supplier/signUp/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/supplier/signUp/page.js"
-    ],
-    "/supplier/signUp/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/supplier/signUp/layout.css",
-      "static/chunks/app/supplier/signUp/layout.js"
     ]
   }
 }

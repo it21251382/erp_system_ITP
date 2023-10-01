@@ -23,7 +23,15 @@ const app = express();
 // Middlware
 app.use(express.static("./public"));
 app.use(express.json());
-app.use(cors({ origin: "http://localhost:3001" }));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "http://localhost:3001",
+      "http://localhost:3002",
+    ],
+  })
+);
 
 app.get("/", (req, res) => {
   res.send(

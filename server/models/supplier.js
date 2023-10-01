@@ -4,21 +4,25 @@ import mongoose from "mongoose";
 const SupplierSchema = new mongoose.Schema({
   sup_name: {
     type: String,
-    // required: true,
+    required: true,
   },
   sup_address: {
     type: String,
+    required: true,
   },
   sup_email: {
     type: String,
     unique: true,
+    required: true,
   },
   sup_password: {
     type: String,
+    required: true,
   },
   sup_phone: {
     type: Number,
     unique: true,
+    required: true,
   },
 });
 
