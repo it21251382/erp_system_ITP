@@ -1,19 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaBoxOpen, FaPlus, FaTrash } from "react-icons/fa";
 import SupplierDropdown from "@/components/ui/3_dot_dropdown/SupplierDropdown";
-import { data } from "@/data/supplier";
+import { data } from "@/data/supplier.js";
 import TabBar from "../components/TabBar"; // Update the path
 import SupplierForm from "@/components/ui/formCards/SupplierForm";
 import { FaPeopleRoof } from "react-icons/fa6";
+import { fetchsupplier } from "./api/api.js";
 
 const Orders = () => {
-  const [selectedTab, setSelectedTab] = useState("Suppliers"); // Default selected tab
+  const [selectedTab, setSelectedTab] = useState("supp"); // Default selected tab
+  const [supplier, setsupplier] = useState([]);
 
   const tabs = [
-    { tab: "Suppliers", icon: <FaBoxOpen /> },
-    { tab: "Add Suppliers", icon: <FaPlus /> },
-    // { tab: "Delete Suppliers", icon: <FaTrash /> },
+    { tab: "supp", icon: <FaBoxOpen /> },
+    { tab: "Add supp", icon: <FaPlus /> },
+    // { tab: "Delete supplier", icon: <FaTrash /> },
   ];
+
+  useEffect(() => {
+    if (selectedTab === "supp") {
+      // Fetch supplier data when the "supplier" tab is selected
+      async function fetchSupplierData() {
+        try {
+          const data = await fetchsupplier();
+          console.log(data); // Add this line to check the data structure
+          setsupplier(data);
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      }
+
+      fetchSupplierData();
+    }
+  }, [selectedTab]);
 
   return (
     <div className="bg-gray-100 min-h-screen">
@@ -27,7 +46,7 @@ const Orders = () => {
         onSelectTab={setSelectedTab}
       />
       <div className="p-4">
-        {selectedTab === "Suppliers" && (
+        {selectedTab === "supp" && (
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
             <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
               <div className="my-3 p-2 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer">
@@ -37,14 +56,17 @@ const Orders = () => {
                 <span className="hidden sm:grid font-bold">Address</span>
               </div>
               <ul>
-                {data.map((supplier, id) => (
+                {supplier.map((supplier, id) => (
                   <li
                     key={id}
                     className="bg-gray-50 hover:bg-gray-100 rounded-lg my-3 p-2 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer"
                   >
-                    <div className="flex"   onClick={() => {
-                        console.log('Section clicked!');
-                    }}>
+                    <div
+                      className="flex"
+                      onClick={() => {
+                        console.log("Section clicked!");
+                      }}
+                    >
                       <div className="bg-purple-100 p-3 rounded-lg">
                         <FaPeopleRoof className="text-purple-800" />
                       </div>
@@ -53,14 +75,12 @@ const Orders = () => {
                           {supplier.sup_name}
                         </p>
                         <p className="text-gray-800 text-sm">
-                          {supplier.parent_cat}
+                          {supplier.sup_email}
                         </p>
                       </div>
                     </div>
                     <p className="text-gray-600 sm:text-left text-right">
-                      <span
-                        className={"p-2 rounded-lg"}
-                      >
+                      <span className={"p-2 rounded-lg"}>
                         {supplier.sup_phone}
                       </span>
                     </p>
@@ -75,12 +95,12 @@ const Orders = () => {
             </div>
           </div>
         )}
-        {selectedTab === "Add Suppliers" && (
+        {selectedTab === "Add supp" && (
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
-            < SupplierForm/>
+            <SupplierForm />
           </div>
         )}
-        {selectedTab === "Delete Suppliers" && (
+        {selectedTab === "Delete supp" && (
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
             {/* ... Your delete order content */}
           </div>

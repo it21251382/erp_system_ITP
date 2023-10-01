@@ -63,7 +63,7 @@ const SupplierDropdown = () => {
               href="#"
               className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
             >
-              View more details
+              Get Purchase Order
             </a>
           </li>
           <li>
@@ -71,7 +71,7 @@ const SupplierDropdown = () => {
               href="#"
               className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
             >
-              Update
+              Update Details
             </a>
           </li>
         </ul>
@@ -80,7 +80,7 @@ const SupplierDropdown = () => {
             href="#"
             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
           >
-            Delete
+            Delete Supplier
           </a>
         </div>
       </div>
