@@ -16,12 +16,24 @@ export default function Home() {
                             </h1>
                             <form className="space-y-4 md:space-y-6" action="#">
                                 <div>
-                                    <label htmlFor="sup_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Company Name</label>
+                                    <label htmlFor="sup_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your company name</label>
                                     <input type="text" name="sup_name" id="sup_name" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                 </div>
                                 <div>
-                                    <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                                    <input type="password" name="password" id="password" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                    <label htmlFor="sup_address" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your company address</label>
+                                    <input type="text" name="sup_address" id="sup_address" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                </div>
+                                <div>
+                                    <label htmlFor="sup_email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Company e-mail</label>
+                                    <input type="email" name="sup_email" id="sup_email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                </div>
+                                <div>
+                                    <label htmlFor="sup_password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Create a custom password</label>
+                                    <input type="password" name="sup_password" id="sup_password" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                </div>
+                                <div>
+                                    <label htmlFor="sup_phone" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your company phone number</label>
+                                    <input type="text" name="sup_phone" id="sup_phone" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                 </div>
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-start">
