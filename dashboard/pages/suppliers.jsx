@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { FaBoxOpen, FaPlus, FaTrash } from "react-icons/fa";
 import SupplierDropdown from "@/components/ui/3_dot_dropdown/SupplierDropdown";
-import { data } from "@/data/supplier.js";
-import TabBar from "../components/TabBar"; // Update the path
+import TabBar from "../components/TabBar";
 import SupplierForm from "@/components/ui/formCards/SupplierForm";
 import { FaPeopleRoof } from "react-icons/fa6";
-import { fetchSuppliers } from "./api/api.js";
+import { fetchSuppliers } from "./api/supApi.js";
 
 const Orders = () => {
   const [selectedTab, setSelectedTab] = useState("Suppliers"); // Default selected tab
@@ -22,21 +21,21 @@ const Orders = () => {
       // Fetch suppliers data when the "Suppliers" tab is selected
       async function fetchSupplierData() {
         try {
-          const data = await fetchSuppliers();
-          setSuppliers(data);
+          const supplierData = await fetchSuppliers(); // Fetch the 'supplier' array
+          setSuppliers(supplierData); // Set 'suppliers' with the 'supplier' array
         } catch (error) {
           console.error("Error fetching data:", error);
         }
       }
-
+  
       fetchSupplierData();
     }
   }, [selectedTab]);
+  
 
   return (
     <div className="bg-gray-100 min-h-screen">
       <div className="flex justify-between px-4 pt-4">
-        <h2></h2>
         <h2>Welcome Back, Clint</h2>
       </div>
       <TabBar
@@ -47,13 +46,7 @@ const Orders = () => {
       <div className="p-4">
         {selectedTab === "Suppliers" && (
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
-            <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
-              <div className="my-3 p-2 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer">
-                <span className="font-bold">Name & Category</span>
-                <span className="sm:text-left text-right font-bold">Phone</span>
-                <span className="hidden md:grid font-bold">E-mail</span>
-                <span className="hidden sm:grid font-bold">Address</span>
-              </div>
+            {Array.isArray(suppliers) && suppliers.length > 0 ? (
               <ul>
                 {suppliers.map((supplierItem, id) => (
                   <li
@@ -91,7 +84,9 @@ const Orders = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            ) : (
+              <p>No suppliers data available.</p>
+            )}
           </div>
         )}
         {selectedTab === "Add Suppliers" && (
