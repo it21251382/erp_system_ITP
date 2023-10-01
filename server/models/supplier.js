@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 // Schema
-const supplierchema = new mongoose.Schema({
+const SupplierSchema = new mongoose.Schema({
   sup_name: {
     type: String,
     // required: true,
@@ -26,5 +26,5 @@ const supplierchema = new mongoose.Schema({
   },
 });
 
-const Supplier = mongoose.model("Supplier", supplierchema);
+const Supplier = mongoose.model("Supplier", SupplierSchema);
 export default Supplier;

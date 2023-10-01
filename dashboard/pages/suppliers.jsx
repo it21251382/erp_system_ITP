@@ -5,26 +5,25 @@ import { data } from "@/data/supplier.js";
 import TabBar from "../components/TabBar"; // Update the path
 import SupplierForm from "@/components/ui/formCards/SupplierForm";
 import { FaPeopleRoof } from "react-icons/fa6";
-import { fetchsupplier } from "./api/api.js";
+import { fetchSuppliers } from "./api/api.js";
 
 const Orders = () => {
-  const [selectedTab, setSelectedTab] = useState("supp"); // Default selected tab
-  const [supplier, setsupplier] = useState([]);
+  const [selectedTab, setSelectedTab] = useState("Suppliers"); // Default selected tab
+  const [suppliers, setSuppliers] = useState([]);
 
   const tabs = [
-    { tab: "supp", icon: <FaBoxOpen /> },
-    { tab: "Add supp", icon: <FaPlus /> },
-    // { tab: "Delete supplier", icon: <FaTrash /> },
+    { tab: "Suppliers", icon: <FaBoxOpen /> },
+    { tab: "Add Suppliers", icon: <FaPlus /> },
+    // { tab: "Delete Suppliers", icon: <FaTrash /> },
   ];
 
   useEffect(() => {
-    if (selectedTab === "supp") {
-      // Fetch supplier data when the "supplier" tab is selected
+    if (selectedTab === "Suppliers") {
+      // Fetch suppliers data when the "Suppliers" tab is selected
       async function fetchSupplierData() {
         try {
-          const data = await fetchsupplier();
-          console.log(data); // Add this line to check the data structure
-          setsupplier(data);
+          const data = await fetchSuppliers();
+          setSuppliers(data);
         } catch (error) {
           console.error("Error fetching data:", error);
         }
@@ -46,7 +45,7 @@ const Orders = () => {
         onSelectTab={setSelectedTab}
       />
       <div className="p-4">
-        {selectedTab === "supp" && (
+        {selectedTab === "Suppliers" && (
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
             <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
               <div className="my-3 p-2 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer">
@@ -56,7 +55,7 @@ const Orders = () => {
                 <span className="hidden sm:grid font-bold">Address</span>
               </div>
               <ul>
-                {supplier.map((supplier, id) => (
+                {suppliers.map((supplier, id) => (
                   <li
                     key={id}
                     className="bg-gray-50 hover:bg-gray-100 rounded-lg my-3 p-2 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer"
@@ -95,12 +94,12 @@ const Orders = () => {
             </div>
           </div>
         )}
-        {selectedTab === "Add supp" && (
+        {selectedTab === "Add Suppliers" && (
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
             <SupplierForm />
           </div>
         )}
-        {selectedTab === "Delete supp" && (
+        {selectedTab === "Delete Suppliers" && (
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
             {/* ... Your delete order content */}
           </div>
