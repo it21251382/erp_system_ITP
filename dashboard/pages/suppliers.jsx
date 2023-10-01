@@ -27,11 +27,10 @@ const Orders = () => {
           console.error("Error fetching data:", error);
         }
       }
-  
+
       fetchSupplierData();
     }
   }, [selectedTab]);
-  
 
   return (
     <div className="bg-gray-100 min-h-screen">
@@ -46,6 +45,12 @@ const Orders = () => {
       <div className="p-4">
         {selectedTab === "Suppliers" && (
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
+            <div className="my-3 p-2 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer">
+              <span className="font-bold">Name</span>
+              <span className="sm:text-left text-right font-bold">E-Mail</span>
+              <span className="hidden md:grid font-bold">Phone Number</span>
+              <span className="hidden sm:grid font-bold">Address</span>
+            </div>
             {Array.isArray(suppliers) && suppliers.length > 0 ? (
               <ul>
                 {suppliers.map((supplierItem, id) => (
@@ -65,9 +70,6 @@ const Orders = () => {
                       <div className="pl-4">
                         <p className="text-gray-800 font-bold">
                           {supplierItem.sup_name}
-                        </p>
-                        <p className="text-gray-800 text-sm">
-                          {supplierItem.sup_email}
                         </p>
                       </div>
                     </div>
