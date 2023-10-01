@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 
-const InventoryDropdown = () => {
+const SupplierDropdown = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -88,4 +88,4 @@ const InventoryDropdown = () => {
   );
 };
 
-export default InventoryDropdown;
+export default SupplierDropdown;
