@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaBoxOpen, FaPlus, FaTrash } from "react-icons/fa";
-import { BsThreeDotsVertical } from "react-icons/bs";
+import SupplierDropdown from "@/components/ui/3_dot_dropdown/SupplierDropdown";
 import { data } from "@/data/supplier";
 import TabBar from "../components/TabBar"; // Update the path
 import SupplierForm from "@/components/ui/formCards/SupplierForm";
@@ -67,7 +67,7 @@ const Orders = () => {
                     <p className="hidden md:flex">{supplier.sup_email}</p>
                     <div className="sm:flex hidden justify-between items-center">
                       <p>{supplier.sup_address}</p>
-                      <BsThreeDotsVertical />
+                      <SupplierDropdown />
                     </div>
                   </li>
                 ))}
