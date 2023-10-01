@@ -12,4 +12,51 @@ const createSupplier = asyncWrapper(async (req, res) => {
   res.status(201).json({ supplier });
 });
 
-export { getAllSupplier, createSupplier };
+const getSupplier = asyncWrapper(async (req, res, next) => {
+  const { id: supplierID } = req.params;
+  const supplier = await Supplier.findOne({ sup_phone: supplierID });
+  if (!supplier) {
+    return next(
+      createCustomError(`No supplier with number: ${supplierID}`, 404)
+    );
+  }
+  res.status(200).json({ supplier });
+});
+
+const updateSupplier = asyncWrapper(async (req, res, next) => {
+  const { id: supplierID } = req.params;
+  const supplier = await Supplier.findOneAndUpdate(
+    { sup_phone: supplierID },
+    req.body,
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
+  if (!supplier) {
+    return next(
+      createCustomError(`No Supplier with Number : ${supplierID}`, 404)
+    );
+  }
+
+  res.status(200).json({ supplier });
+});
+
+const deleteSupplier = asyncWrapper(async (req, res) => {
+  const { id: supplierID } = req.params;
+  const supplier = await Supplier.findOneAndDelete({ sup_phone: supplierID });
+  if (!supplier) {
+    return next(
+      createCustomError(`No Supplier with Number : ${supplierID}`, 404)
+    );
+  }
+  res.status(200).json({ supplier });
+});
+
+export {
+  getAllSupplier,
+  createSupplier,
+  getSupplier,
+  updateSupplier,
+  deleteSupplier,
+};
