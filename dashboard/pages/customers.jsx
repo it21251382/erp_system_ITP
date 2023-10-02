@@ -5,6 +5,8 @@ import { data } from "@/data/customer";
 import TabBar from "../components/TabBar"; // Update the path
 import { FaCubesStacked } from "react-icons/fa6";
 import CustomerForm from "@/components/ui/formCards/CustomerForm";
+import { fetchCustomer } from "./api/cusApi";
+
 
 const Customer = () => {
   const [selectedTab, setSelectedTab] = useState("Customer"); // Default selected tab
