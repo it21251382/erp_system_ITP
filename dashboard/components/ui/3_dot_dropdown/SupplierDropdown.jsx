@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import axios from 'axios'
+import Link from "next/link";
 
 const SupplierDropdown = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -69,7 +69,7 @@ const SupplierDropdown = () => {
           </li>
           <li>
             <a
-              href="#"
+              href="/updates/UpdateSupplierDetails"
               className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
             >
               Update Details
