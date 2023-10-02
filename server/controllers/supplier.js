@@ -14,7 +14,7 @@ const createSupplier = asyncWrapper(async (req, res) => {
 
 const getSupplier = asyncWrapper(async (req, res, next) => {
   const { id: supplierID } = req.params;
-  const supplier = await Supplier.findOne({ sup_phone: supplierID });
+  const supplier = await Supplier.findOne({ _id: supplierID });
   if (!supplier) {
     return next(
       createCustomError(`No supplier with number: ${supplierID}`, 404)
@@ -26,7 +26,7 @@ const getSupplier = asyncWrapper(async (req, res, next) => {
 const updateSupplier = asyncWrapper(async (req, res, next) => {
   const { id: supplierID } = req.params;
   const supplier = await Supplier.findOneAndUpdate(
-    { sup_phone: supplierID },
+    { _id: supplierID },
     req.body,
     {
       new: true,

@@ -20,7 +20,7 @@ const SupplierSchema = new mongoose.Schema({
     // required: true,
   },
   sup_phone: {
-    type: Number,
+    type: String,
     unique: true,
     // required: true,
   },
