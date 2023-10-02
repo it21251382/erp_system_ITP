@@ -6,6 +6,7 @@ import TabBar from "../components/TabBar";
 import SupplierForm from "@/components/ui/formCards/SupplierForm";
 import { FaPeopleRoof, FaPenToSquare } from "react-icons/fa6";
 import { fetchSuppliers } from "./api/supApi.js";
+import SupplierUpdate from "@/components/ui/updateFormCards/SupplierUpdate";
 
 const Suppliers = () => {
   const [selectedTab, setSelectedTab] = useState("Suppliers"); // Default selected tab
@@ -132,7 +133,7 @@ const Suppliers = () => {
         )}
         {selectedTab === "Update Suppliers" && (
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
-            {/* ... Your delete order content */}
+            <SupplierUpdate />
           </div>
         )}
       </div>
