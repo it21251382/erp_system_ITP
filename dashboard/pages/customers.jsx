@@ -127,7 +127,7 @@ const Customer = () => {
                           <button
                             className="px-4 py-2 text-white bg-red-600 hover:bg-red-800 rounded-lg transition duration-300 ease-in-out"
                             onClick={() =>
-                              handleDeleteInventory(customerItem.cus_phone)
+                              handleDeleteCustomer(customerItem.cus_phone)
                             }
                           >
                             Delete
