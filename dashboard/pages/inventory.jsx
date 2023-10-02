@@ -3,9 +3,10 @@ import { FaCubes, FaPlus } from "react-icons/fa";
 import InventoryDropdown from "@/components/ui/3_dot_dropdown/InventoryDropdown";
 import { data } from "@/data/inventory";
 import TabBar from "../components/TabBar"; // Update the path
-import { FaCubesStacked } from "react-icons/fa6";
+import { FaCubesStacked, FaPenToSquare } from "react-icons/fa6";
 import InventoryForm from "@/components/ui/formCards/InventoryForm.jsx";
 import { fetchInventory } from "./api/invApi";
+import InventoryUpdate from "@/components/ui/updateFormCards/InventoryUpdate"
 
 const Inventory = () => {
   const [selectedTab, setSelectedTab] = useState("Inventory"); // Default selected tab
@@ -14,7 +15,7 @@ const Inventory = () => {
   const tabs = [
     { tab: "Inventory", icon: <FaCubesStacked /> },
     { tab: "Add Products", icon: <FaPlus /> },
-    // { tab: "Delete Products", icon: <FaTrash /> },
+    { tab: "Update Products", icon: <FaPenToSquare /> },
   ];
 
   useEffect(() => {
@@ -139,7 +140,7 @@ const Inventory = () => {
         )}
         {selectedTab === "Update Products" && (
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
-            {/* ... Your delete order content */}
+            <InventoryUpdate />
           </div>
         )}
       </div>
