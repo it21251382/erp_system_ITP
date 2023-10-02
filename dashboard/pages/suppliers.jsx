@@ -7,7 +7,7 @@ import SupplierForm from "@/components/ui/formCards/SupplierForm";
 import { FaPeopleRoof } from "react-icons/fa6";
 import { fetchSuppliers } from "./api/supApi.js";
 
-const Suppliers = () => {
+const Orders = () => {
   const [selectedTab, setSelectedTab] = useState("Suppliers"); // Default selected tab
   const [suppliers, setSuppliers] = useState([]);
 
@@ -140,4 +140,4 @@ const Suppliers = () => {
   );
 };
 
-export default Suppliers;
+export default Orders;
