@@ -9,7 +9,7 @@ const InventorySchema = new mongoose.Schema({
   sku: {
     type: String,
     unique: true,
-    required: true,
+    // required: true,
   },
   inv_pro_description: {
     type: String,
