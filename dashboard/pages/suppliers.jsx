@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { FaBoxOpen, FaPlus, FaTrash } from "react-icons/fa";
+import { FaBoxOpen, FaPlus } from "react-icons/fa";
 import SupplierDropdown from "@/components/ui/3_dot_dropdown/SupplierDropdown";
 import TabBar from "../components/TabBar";
 import SupplierForm from "@/components/ui/formCards/SupplierForm";
-import { FaPeopleRoof } from "react-icons/fa6";
+import { FaPeopleRoof, FaPenToSquare } from "react-icons/fa6";
 import { fetchSuppliers } from "./api/supApi.js";
 
-const Orders = () => {
+const Suppliers = () => {
   const [selectedTab, setSelectedTab] = useState("Suppliers"); // Default selected tab
   const [suppliers, setSuppliers] = useState([]);
 
   const tabs = [
     { tab: "Suppliers", icon: <FaBoxOpen /> },
     { tab: "Add Suppliers", icon: <FaPlus /> },
-    // { tab: "Delete Suppliers", icon: <FaTrash /> },
+    { tab: "Update Suppliers", icon: <FaPenToSquare /> },
   ];
 
   useEffect(() => {
@@ -130,7 +130,7 @@ const Orders = () => {
             <SupplierForm />
           </div>
         )}
-        {selectedTab === "Delete Suppliers" && (
+        {selectedTab === "Update Suppliers" && (
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
             {/* ... Your delete order content */}
           </div>
@@ -140,4 +140,4 @@ const Orders = () => {
   );
 };
 
-export default Orders;
+export default Suppliers;
