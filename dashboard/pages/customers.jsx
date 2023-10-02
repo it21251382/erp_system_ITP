@@ -10,9 +10,10 @@ import {
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { data } from "@/data/customer";
 import TabBar from "../components/TabBar"; // Update the path
-import { FaCubesStacked } from "react-icons/fa6";
+import { FaPenToSquare } from "react-icons/fa6";
 import CustomerForm from "@/components/ui/formCards/CustomerForm";
 import { fetchCustomer } from "./api/cusApi";
+import CustomerUpdate from "@/components/ui/updateFormCards/CustomerUpdate";
 
 const Customer = () => {
   const [selectedTab, setSelectedTab] = useState("Customer"); // Default selected tab
@@ -21,7 +22,7 @@ const Customer = () => {
   const tabs = [
     { tab: "Customer", icon: <FaFrog /> },
     { tab: "Add Customer", icon: <FaPlus /> },
-    // { tab: "Delete Customer", icon: <FaTrash /> },
+    { tab: "Update Customer", icon: <FaPenToSquare /> },
   ];
 
   useEffect(() => {
@@ -148,9 +149,9 @@ const Customer = () => {
             <CustomerForm />
           </div>
         )}
-        {selectedTab === "Delete Customer" && (
+        {selectedTab === "Update Customer" && (
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
-            {/* ... Your delete order content */}
+            <CustomerUpdate />
           </div>
         )}
       </div>
