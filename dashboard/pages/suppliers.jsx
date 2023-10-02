@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { FaBoxOpen, FaPlus, FaTrash } from "react-icons/fa";
 import SupplierDropdown from "@/components/ui/3_dot_dropdown/SupplierDropdown";
 import TabBar from "../components/TabBar";
@@ -31,6 +32,31 @@ const Orders = () => {
       fetchSupplierData();
     }
   }, [selectedTab]);
+
+  const handleDeleteSupplier = async (supPhone) => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/v1/supplier/${supPhone}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      if (response.ok) {
+        // Remove the deleted supplier from the state
+        setSuppliers((prevSuppliers) =>
+          prevSuppliers.filter(
+            (supplierItem) => supplierItem.sup_phone !== supPhone
+          )
+        );
+      } else {
+        // Handle error response if needed
+        console.error("Error deleting supplier:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error deleting supplier:", error);
+    }
+  };
 
   return (
     <div className="bg-gray-100 min-h-screen">
@@ -82,6 +108,14 @@ const Orders = () => {
                     <div className="sm:flex hidden justify-between items-center">
                       <p>{supplierItem.sup_address}</p>
                       <SupplierDropdown />
+                      <button
+                        className="px-4 py-2 text-white bg-red-600 hover:bg-red-800 rounded-lg transition duration-300 ease-in-out"
+                        onClick={() =>
+                          handleDeleteSupplier(supplierItem.sup_phone)
+                        }
+                      >
+                        Delete
+                      </button>
                     </div>
                   </li>
                 ))}
