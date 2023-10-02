@@ -10,6 +10,39 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
+    ],
+    "/supplier/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/supplier/page.js"
+    ],
+    "/supplier/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/supplier/layout.css",
+      "static/chunks/app/supplier/layout.js"
+    ],
+    "/supplier/dash/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/supplier/dash/layout.css",
+      "static/chunks/app/supplier/dash/layout.js"
+    ],
+    "/supplier/dash/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/supplier/dash/page.js"
+    ],
+    "/supplier/signUp/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/supplier/signUp/layout.css",
+      "static/chunks/app/supplier/signUp/layout.js"
+    ],
+    "/supplier/signUp/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/supplier/signUp/page.js"
     ]
   }
 }
