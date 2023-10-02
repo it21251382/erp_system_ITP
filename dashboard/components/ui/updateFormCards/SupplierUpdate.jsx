@@ -78,7 +78,7 @@ const SupplierUpdate = () => {
         <select
           onChange={handleSupplierChange}
           value={selectedSupplier || ""}
-          className="border border-gray-300 rounded px-3 py-2 w-full"
+          className="border border-gray-300 rounded-lg px-3 py-2 w-full"
         >
           {suppliers.length > 0 ? (
             suppliers.map((supplier) => (
@@ -101,7 +101,7 @@ const SupplierUpdate = () => {
               name="sup_name"
               value={supplierData.sup_name}
               onChange={handleInputChange}
-              className="border border-gray-300 rounded px-3 py-2 w-full"
+              className="border border-gray-300 rounded-lg px-3 py-2 w-full"
             />
           </div>
           <div className="mb-4">
@@ -111,7 +111,7 @@ const SupplierUpdate = () => {
               name="sup_address"
               value={supplierData.sup_address}
               onChange={handleInputChange}
-              className="border border-gray-300 rounded px-3 py-2 w-full"
+              className="border border-gray-300 rounded-lg px-3 py-2 w-full"
             />
           </div>
           <div className="mb-4">
@@ -121,7 +121,7 @@ const SupplierUpdate = () => {
               name="sup_email"
               value={supplierData.sup_email}
               onChange={handleInputChange}
-              className="border border-gray-300 rounded px-3 py-2 w-full"
+              className="border border-gray-300 rounded-lg px-3 py-2 w-full"
             />
           </div>
           <div className="mb-4">
@@ -131,7 +131,7 @@ const SupplierUpdate = () => {
               name="sup_password"
               value={supplierData.sup_password}
               onChange={handleInputChange}
-              className="border border-gray-300 rounded px-3 py-2 w-full"
+              className="border border-gray-300 rounded-lg px-3 py-2 w-full"
             />
           </div>
           <div className="mb-4">
@@ -141,12 +141,12 @@ const SupplierUpdate = () => {
               name="sup_phone"
               value={supplierData.sup_phone}
               onChange={handleInputChange}
-              className="border border-gray-300 rounded px-3 py-2 w-full"
+              className="border border-gray-300 rounded-lg px-3 py-2 w-full"
             />
           </div>
           <button
             onClick={handleSave}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            className="bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
           >
             Save
           </button>
@@ -156,7 +156,7 @@ const SupplierUpdate = () => {
                 message.includes("Error")
                   ? "bg-red-500 text-white"
                   : "bg-green-500 text-white"
-              } rounded-md`}
+              } rounded-lg`}
             >
               {message}
             </p>
