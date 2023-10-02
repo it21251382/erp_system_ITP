@@ -6,7 +6,7 @@ import TabBar from "../components/TabBar"; // Update the path
 import { FaCubesStacked } from "react-icons/fa6";
 import InventoryForm from "@/components/ui/formCards/InventoryForm.jsx";
 
-const Orders = () => {
+const Inventory = () => {
   const [selectedTab, setSelectedTab] = useState("Inventory"); // Default selected tab
 
   const tabs = [
@@ -90,4 +90,4 @@ const Orders = () => {
   );
 };
 
-export default Orders;
+export default Inventory;

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const UpdateSupplierDetailForm = () => {
+const UpdateSupplierDetailForm = ({ initialData, onCancel }) => {
   const [formData, setFormData] = useState({
     sup_name: "",
     sup_address: "",
     sup_email: "",
     sup_phone: "",
+    ...initialData, // Set initial values from the selected supplier data
   });
 
   const handleChange = (e) => {
@@ -19,7 +20,7 @@ const UpdateSupplierDetailForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
       // Make an API request to update the item in the database
       const response = await axios.patch(
@@ -46,7 +47,10 @@ const UpdateSupplierDetailForm = () => {
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto">
       <div className="mb-4">
-        <label htmlFor="sup_name" className="block text-gray-600 text-sm font-semibold mb-1">
+        <label
+          htmlFor="sup_name"
+          className="block text-gray-600 text-sm font-semibold mb-1"
+        >
           Name
         </label>
         <input
@@ -60,7 +64,10 @@ const UpdateSupplierDetailForm = () => {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="sup_address" className="block text-gray-600 text-sm font-semibold mb-1">
+        <label
+          htmlFor="sup_address"
+          className="block text-gray-600 text-sm font-semibold mb-1"
+        >
           Address
         </label>
         <input
@@ -74,7 +81,10 @@ const UpdateSupplierDetailForm = () => {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="sup_email" className="block text-gray-600 text-sm font-semibold mb-1">
+        <label
+          htmlFor="sup_email"
+          className="block text-gray-600 text-sm font-semibold mb-1"
+        >
           Email
         </label>
         <input
@@ -88,7 +98,10 @@ const UpdateSupplierDetailForm = () => {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="sup_phone" className="block text-gray-600 text-sm font-semibold mb-1">
+        <label
+          htmlFor="sup_phone"
+          className="block text-gray-600 text-sm font-semibold mb-1"
+        >
           Phone Number
         </label>
         <input
@@ -101,7 +114,17 @@ const UpdateSupplierDetailForm = () => {
           placeholder="Enter phone number"
         />
       </div>
-      <button type="submit" className="w-full py-2 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out">
+      <button
+        type="button"
+        onClick={onCancel}
+        className="w-full py-2 px-4 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition duration-300 ease-in-out mr-2"
+      >
+        Cancel
+      </button>
+      <button
+        type="submit"
+        className="w-full py-2 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out"
+      >
         Update
       </button>
     </form>
