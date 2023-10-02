@@ -74,7 +74,9 @@ const Suppliers = () => {
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
             <div className="my-3 p-2 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer">
               <span className="font-bold">Name</span>
-              <span className="sm:text-left text-right font-bold">Phone Number</span>
+              <span className="sm:text-left text-right font-bold">
+                Phone Number
+              </span>
               <span className="hidden md:grid font-bold">E-Mail</span>
               <span className="hidden sm:grid font-bold">Address</span>
             </div>
@@ -108,15 +110,16 @@ const Suppliers = () => {
                     <p className="hidden md:flex">{supplierItem.sup_email}</p>
                     <div className="sm:flex hidden justify-between items-center">
                       <p>{supplierItem.sup_address}</p>
-                      <SupplierDropdown />
-                      <button
-                        className="px-4 py-2 text-white bg-red-600 hover:bg-red-800 rounded-lg transition duration-300 ease-in-out"
-                        onClick={() =>
-                          handleDeleteSupplier(supplierItem.sup_phone)
-                        }
-                      >
-                        Delete
-                      </button>
+                      <div className="ml-3">
+                        <button
+                          className="px-4 py-2 text-white bg-red-600 hover:bg-red-800 rounded-lg transition duration-300 ease-in-out"
+                          onClick={() =>
+                            handleDeleteSupplier(supplierItem.sup_phone)
+                          }
+                        >
+                          Delete
+                        </button>
+                      </div>
                     </div>
                   </li>
                 ))}
