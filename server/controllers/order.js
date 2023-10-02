@@ -7,25 +7,47 @@ const getAllOrder = asyncWrapper(async (req, res) => {
 });
 
 const createOrder = asyncWrapper(async (req, res) => {
-  try {
-    const { customer, items, total_amount } = req.body;
-
-    const order = new Order({
-      customer,
-      items,
-      total_amount,
-    });
-
-    await order.save();
-    res.status(201).json(order);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
+  const order = await Order.create(req.body);
+  res.status(201).json({ order });
 });
 
-export { getAllOrder, createOrder };
+const getOrder = asyncWrapper(async (req, res, next) => {
+  const { id: orderID } = req.params;
+  const order = await Order.findOne({ _id: orderID });
+  if (!order) {
+    return next(
+      createCustomError(`No order with id: ${orderID}`, 404)
+    );
+  }
+  res.status(200).json({ order });
+});
 
+const updateOrder = asyncWrapper(async (req, res, next) => {
+  const { id: orderID } = req.params;
+  const order = await Order.findOneAndUpdate(
+    { _id: orderID },
+    req.body,
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
+  if (!order) {
+    return next(
+      createCustomError(`No order with id : ${orderID}`, 404)
+    );
+  }
 
-// 6515dd3b67c824d044dcb847
-// 650eff18b00d359c8de5e0ad
+  res.status(200).json({ order });
+});
+
+const deleteOrder = asyncWrapper(async (req, res) => {
+  const { id: orderID } = req.params;
+  const order = await Order.findOneAndDelete({ _id: orderID });
+  if (!order) {
+    return next(createCustomError(`No order with id : ${orderID}`, 404));
+  }
+  res.status(200).json({ order });
+});
+
+export { getAllOrder, createOrder, getOrder, updateOrder, deleteOrder };

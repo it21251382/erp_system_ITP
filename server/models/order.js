@@ -1,24 +1,15 @@
 import mongoose from "mongoose";
 
 const OrderSchema = new mongoose.Schema({
-  customer: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Customer",
-    required: true,
+  cus_name: {
+    type: String,
   },
-  items: [
-    {
-      product: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Inventory",
-        required: true,
-      },
-      quantity: {
-        type: Number,
-        required: true,
-      },
-    },
-  ],
+  item_sku: {
+    type: String,
+  },
+  quantity: {
+    type: Number,
+  },
   order_date: {
     type: Date,
     default: Date.now,
