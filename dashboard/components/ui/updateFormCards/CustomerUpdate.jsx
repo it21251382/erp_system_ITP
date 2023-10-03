@@ -80,7 +80,7 @@ const CustomerUpdate = () => {
       <h1 className="text-2xl font-bold mb-3">Customer Update</h1>
       <div className="mb-4">
         <label className="block text-gray-700 font-bold">
-          Select a Product:
+          Select a Customer:
         </label>
         <select
           onChange={handleCustomerChange}
