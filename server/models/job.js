@@ -25,7 +25,7 @@ const JobSchema = new mongoose.Schema({
   },
   job_type: {
     //Warranty or Repair
-    type: Number,
+    type: String,
   },
 });
 
