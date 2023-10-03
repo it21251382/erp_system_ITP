@@ -53,7 +53,7 @@ const OrderForm = () => {
           </h5>
           <div>
             <label
-              for="name"
+              htmlFor="cus_name"
               className="block mb-1 text-sm font-medium text-black-500"
             >
               Customer Name
@@ -70,7 +70,7 @@ const OrderForm = () => {
           </div>
           <div>
             <label
-              for="item_sku"
+              htmlFor="item_sku"
               className="block mb-1 text-sm font-medium text-black-500"
             >
               SKU
@@ -86,28 +86,40 @@ const OrderForm = () => {
               required
             />
           </div>
-        
-
-          <div className="flex space-x-4">
-            <div className="w-full">
-              <label
-                htmlFor="quantity"
-                className="block mb-1 text-sm font-medium text-black-500"
-              >
-                Quantity
-              </label>
-              <input
-                type="number"
-                name="quantity"
-                id="quantity"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                value={formData.quantity}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
+          <div>
+            <label
+              htmlFor="quantity"
+              className="block mb-1 text-sm font-medium text-black-500"
+            >
+              Quantity
+            </label>
+            <input
+              type="number"
+              name="quantity"
+              id="quantity"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              value={formData.quantity}
+              onChange={handleInputChange}
+              required
+            />
           </div>
-
+          <div>
+            <label
+              htmlFor="order_date"
+              className="block mb-1 text-sm font-medium text-black-500"
+            >
+              Order Date
+            </label>
+            <input
+              type="date"
+              name="order_date"
+              id="order_date"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              value={formData.order_date}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
           <button
             type="submit"
             className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
@@ -117,7 +129,7 @@ const OrderForm = () => {
         </form>
       )}
     </div>
-  )
+  );
 };
 
 export default OrderForm;
