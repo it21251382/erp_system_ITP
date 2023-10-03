@@ -72,14 +72,12 @@ const SupplierUpdate = () => {
     <div className="container mx-auto mt-5">
       <h1 className="text-2xl font-bold mb-3">Supplier Update</h1>
       <div className="mb-4">
-        <label className="block text-gray-700 font-bold">
-          Select a Supplier:
-        </label>
         <select
           onChange={handleSupplierChange}
           value={selectedSupplier || ""}
           className="border border-gray-300 rounded-lg px-3 py-2 w-full"
         >
+          <option value="">Choose a supplier</option>
           {suppliers.length > 0 ? (
             suppliers.map((supplier) => (
               <option key={supplier._id} value={supplier._id}>
