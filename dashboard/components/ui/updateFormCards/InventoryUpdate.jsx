@@ -79,14 +79,12 @@ const InventoryUpdate = () => {
     <div className="container mx-auto mt-5">
       <h1 className="text-2xl font-bold mb-3">Inventory Update</h1>
       <div className="mb-4">
-        <label className="block text-gray-700 font-bold">
-          Select a Product:
-        </label>
         <select
           onChange={handleInventoryChange}
           value={selectedInventory || ""}
           className="border border-gray-300 rounded-lg px-3 py-2 w-full"
         >
+          <option value="">Choose a product</option>
           {inventory.length > 0 ? (
             inventory.map((inventory) => (
               <option key={inventory._id} value={inventory._id}>

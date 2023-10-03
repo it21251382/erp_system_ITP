@@ -79,14 +79,12 @@ const CustomerUpdate = () => {
     <div className="container mx-auto mt-5">
       <h1 className="text-2xl font-bold mb-3">Customer Update</h1>
       <div className="mb-4">
-        <label className="block text-gray-700 font-bold">
-          Select a Customer:
-        </label>
         <select
           onChange={handleCustomerChange}
           value={selectedCustomer || ""}
           className="border border-gray-300 rounded-lg px-3 py-2 w-full"
         >
+          <option value="">Choose a customer</option>
           {customer.length > 0 ? (
             customer.map((customer) => (
               <option key={customer._id} value={customer._id}>
