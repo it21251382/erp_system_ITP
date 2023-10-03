@@ -15,7 +15,7 @@ const Inventory = () => {
   const tabs = [
     { tab: "Inventory", icon: <FaCubesStacked /> },
     { tab: "Add Products", icon: <FaPlus /> },
-    { tab: "Update Products", icon: <FaPenToSquare /> },
+    // { tab: "Update Products", icon: <FaPenToSquare /> },
   ];
 
   useEffect(() => {

@@ -1,23 +1,62 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FaShoppingBag,
   FaPlus,
   FaTrash,
   FaFileInvoiceDollar,
 } from "react-icons/fa";
+import { FaPenToSquare } from "react-icons/fa6";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { data } from "../data/order.js";
 import TabBar from "../components/TabBar";
 import InvoiceForm from "@/components/ui/formCards/OrderForm.jsx"; // Update the path
+import { fetchOrder } from "./api/orderApi.js";
 
 const Orders = () => {
   const [selectedTab, setSelectedTab] = useState("Order"); // Default selected tab
+  const [order, setOrder] = useState([]);
 
   const tabs = [
     { tab: "Order", icon: <FaFileInvoiceDollar /> },
     { tab: "Add Order", icon: <FaPlus /> },
-    // { tab: "Function Order", icon: <FaTrash /> },
+    // { tab: "update Order", icon: <FaPenToSquare /> },
   ];
+
+  useEffect(() => {
+    if (selectedTab === "Order") {
+      // Fetch inventory data when the "Inventory" tab is selected
+      async function fetchOrderData() {
+        try {
+          const orderData = await fetchOrder(); // Fetch the 'Inventory' array
+          setOrder(orderData); // Set 'Inventory' with the 'Inventory' array
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      }
+
+      fetchOrderData();
+    }
+  }, [selectedTab]);
+
+  const handleDeleteOrder = async (ID) => {
+    try {
+      const response = await fetch(`http://localhost:5000/api/v1/order/${ID}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        // Remove the deleted Orders from the state
+        setOrder((prevOrder) =>
+          prevOrder.filter((orderItem) => orderItem._id !== ID)
+        );
+      } else {
+        // Handle error response if needed
+        console.error("Error deleting Orders item:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error deleting Orders item:", error);
+    }
+  };
 
   return (
     <div className="bg-gray-100 min-h-screen">
@@ -40,52 +79,42 @@ const Orders = () => {
                 <span className="hidden md:grid">Order Date</span>
                 <span className="hidden sm:grid">Method</span>
               </div>
-              <ul>
-                {data.map((order, id) => (
-                  <li
-                    key={id}
-                    className="bg-gray-50 hover:bg-gray-100 rounded-lg my-3 p-2 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer"
-                  >
-                    <div className="flex">
-                      <div className="bg-purple-100 p-3 rounded-lg">
-                        <FaShoppingBag className="text-purple-800" />
+              {Array.isArray(order) && order.length > 0 ? (
+                <ul>
+                  {order.map((orderItem, id) => (
+                    <li
+                      key={id}
+                      className="bg-gray-50 hover:bg-gray-100 rounded-lg my-3 p-2 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer"
+                    >
+                      <div className="flex">
+                        <div className="bg-purple-100 p-3 rounded-lg">
+                          <FaShoppingBag className="text-purple-800" />
+                        </div>
+                        <div className="pl-4">
+                          <p className="text-gray-800 font-bold">
+                            {orderItem.cus_name}
+                          </p>
+                          <p className="text-gray-800 text-sm">
+                            {orderItem.item_sku}
+                          </p>
+                        </div>
                       </div>
-                      <div className="pl-4">
-                        <p className="text-gray-800 font-bold">
-                          Rs.{order.total.toLocaleString()}
-                        </p>
-                        <p className="text-gray-800 text-sm">
-                          {order.name.first}
-                        </p>
+                      <p className="hidden md:flex">{orderItem.quantity}</p>
+                      <div className="sm:flex hidden justify-between items-center">
+                        <BsThreeDotsVertical />
                       </div>
-                    </div>
-                    <p className="text-gray-600 sm:text-left text-right">
-                      <span
-                        className={
-                          order.status == "Processing"
-                            ? "bg-green-200 p-2 rounded-lg"
-                            : order.status == "Completed"
-                            ? "bg-blue-200 p-2 rounded-lg"
-                            : "bg-yellow-200 p-2 rounded-lg"
-                        }
-                      >
-                        {order.status}
-                      </span>
-                    </p>
-                    <p className="hidden md:flex">{order.date}</p>
-                    <div className="sm:flex hidden justify-between items-center">
-                      <p>{order.method}</p>
-                      <BsThreeDotsVertical />
-                    </div>
-                  </li>
-                ))}
-              </ul>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p>No data</p>
+              )}
             </div>
           </div>
         )}
         {selectedTab === "Add Order" && (
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
-              <InvoiceForm/>
+            <InvoiceForm />
           </div>
         )}
         {selectedTab === "Delete Order" && (
