@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { api } from "@/utils/api";
+import { fetchSuppliers } from "@/pages/api/supApi";
 
 const InventoryForm = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +15,21 @@ const InventoryForm = () => {
     inv_pro_reorder_level: "",
   });
 
+  const [submissionStatus, setSubmissionStatus] = useState(null);
+  const [suppliers, setSuppliers] = useState([]);
+
+  useEffect(() => {
+    async function fetchSupplierData() {
+      try {
+        const supplierData = await fetchSuppliers();
+        setSuppliers(supplierData);
+      } catch (error) {
+        console.error("Error fetching suppliers:", error);
+      }
+    }
+    fetchSupplierData();
+  }, []);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -21,8 +37,6 @@ const InventoryForm = () => {
       [name]: value,
     });
   };
-
-  const [submissionStatus, setSubmissionStatus] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -90,26 +104,17 @@ const InventoryForm = () => {
               required
             />
           </div>
-          {/* <div className="flex space-x-4">
-          <select
-            id="countries"
-            className="flex-grow bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-white-700 dark:border-white-600 dark:placeholder-grey-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          >
-            <option>Parent category</option>
-            <option>Laptops</option>
-            <option>Desktops</option>
-            <option>Storage</option>
-          </select>
-          <select
-            id="countries"
-            className="flex-grow bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-white-700 dark:border-white-600 dark:placeholder-grey-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          >
-            <option>Child category</option>
-            <option>Gaming</option>
-            <option>Productivity</option>
-            <option>Workstation</option>
-          </select>
-        </div> */}
+          <div className="flex space-x-4">
+            <select
+              id="supplier"
+              className="flex-grow bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-white-700 dark:border-white-600 dark:placeholder-grey-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
+              <option>Choose Supplier</option>
+              <option>Laptops</option>
+              <option>Desktops</option>
+              <option>Storage</option>
+            </select>
+          </div>
           <div>
             <textarea
               name="inv_pro_description"
