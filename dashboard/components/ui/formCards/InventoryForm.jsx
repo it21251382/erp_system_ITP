@@ -13,6 +13,7 @@ const InventoryForm = () => {
     inv_pro_warranty: "",
     inv_pro_quantity: "",
     inv_pro_reorder_level: "",
+    supplier: "",
   });
 
   const [submissionStatus, setSubmissionStatus] = useState(null);
@@ -32,6 +33,7 @@ const InventoryForm = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+
     setFormData({
       ...formData,
       [name]: value,
@@ -42,7 +44,11 @@ const InventoryForm = () => {
     e.preventDefault();
 
     try {
-      const response = await api.post("/inventory", formData);
+      const selectedSupplierId = formData.supplierId;
+      const response = await api.post("/inventory", {
+        ...formData,
+        supplierId: selectedSupplierId,
+      });
 
       if (response.status === 201) {
         // Data successfully posted to mongo
@@ -71,7 +77,7 @@ const InventoryForm = () => {
           </h5>
           <div>
             <label
-              for="name"
+              htmlFor="name"
               className="block mb-1 text-sm font-medium text-black-500"
             >
               Product name
@@ -88,7 +94,7 @@ const InventoryForm = () => {
           </div>
           <div>
             <label
-              for="sku"
+              htmlFor="sku"
               className="block mb-1 text-sm font-medium text-black-500"
             >
               SKU
@@ -107,12 +113,19 @@ const InventoryForm = () => {
           <div className="flex space-x-4">
             <select
               id="supplier"
+              name="supplier"
               className="flex-grow bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-white-700 dark:border-white-600 dark:placeholder-grey-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              onChange={handleInputChange}
+              required
             >
-              <option>Choose Supplier</option>
-              <option>Laptops</option>
-              <option>Desktops</option>
-              <option>Storage</option>
+              <option defaultValue="" disabled selected>
+                Select Supplier
+              </option>
+              {suppliers.map((supplier) => (
+                <option key={supplier._id} value={supplier._id}>
+                  {supplier.sup_name}
+                </option>
+              ))}
             </select>
           </div>
           <div>
@@ -188,7 +201,7 @@ const InventoryForm = () => {
 
           <div>
             <label
-              for="stock_in_hand"
+              htmlFor="stock_in_hand"
               className="block mb-1 text-sm font-medium text-black-500"
             >
               Quantity
@@ -206,7 +219,7 @@ const InventoryForm = () => {
 
           <div>
             <label
-              for="reorder_level"
+              htmlFor="reorder_level"
               className="block mb-1 text-sm font-medium text-black-500"
             >
               Reorder level

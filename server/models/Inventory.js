@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import Supplier from "./supplier.js";
 
 // Setting schema
 const InventorySchema = new mongoose.Schema({
@@ -37,7 +36,8 @@ const InventorySchema = new mongoose.Schema({
     // required: true,
   },
   supplier: {
-    type: Supplier.schema,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Supplier",
     // required: true,
   },
 });
