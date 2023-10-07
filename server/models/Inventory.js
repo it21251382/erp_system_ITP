@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import Supplier from "./supplier.js";
 
 // Setting schema
 const InventorySchema = new mongoose.Schema({
@@ -33,6 +34,10 @@ const InventorySchema = new mongoose.Schema({
   },
   inv_pro_reorder_level: {
     type: Number,
+    // required: true,
+  },
+  supplier: {
+    type: Supplier.schema,
     // required: true,
   },
 });
