@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Link from "next/link";
 import { FaBoxOpen, FaPlus } from "react-icons/fa";
 import SupplierDropdown from "@/components/ui/3_dot_dropdown/SupplierDropdown";
 import TabBar from "../components/TabBar";
@@ -110,7 +111,12 @@ const Suppliers = () => {
                     <p className="hidden md:flex">{supplierItem.sup_email}</p>
                     <div className="sm:flex hidden justify-between items-center">
                       <p>{supplierItem.sup_address}</p>
+                      <Link href="./supplier/purchaseOrder">
                       <div className="ml-3">
+                        <button className="px-4 py-2 text-white bg-blue-600 hover:bg-blue-800 rounded-lg transition duration-300 ease-in-out">Order</button>
+                        </div>
+                        </Link>
+                        <div className="ml-3">
                         <button
                           className="px-4 py-2 text-white bg-red-600 hover:bg-red-800 rounded-lg transition duration-300 ease-in-out"
                           onClick={() =>
