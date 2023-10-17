@@ -16,6 +16,8 @@ import { customerRouter } from "./routes/customer.js";
 import { jobRouter } from "./routes/job.js";
 import { notFound } from "./middleware/not-found.js";
 import { errorHandlerMiddleware } from "./middleware/error-handler.js";
+import employeeRouter from "./routes/employee.js";
+import leaveRouter from "./routes/leave.js";
 
 // Configs
 const app = express();
@@ -23,15 +25,7 @@ const app = express();
 // Middlware
 app.use(express.static("./public"));
 app.use(express.json());
-app.use(
-  cors({
-    origin: [
-      "http://localhost:3000",
-      "http://localhost:3001",
-      "http://localhost:3002",
-    ],
-  })
-);
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send(
@@ -47,6 +41,8 @@ app.use("/api/v1/supplier", supplierRouter);
 app.use("/api/v1/supplierProduct", supplierProductRouter);
 app.use("/api/v1/customer", customerRouter);
 app.use("/api/v1/job", jobRouter);
+app.use('/api/v1/employee', employeeRouter);
+app.use('/api/v1/leave', leaveRouter);
 
 // Custom error handlers
 app.use(notFound);
