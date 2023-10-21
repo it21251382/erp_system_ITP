@@ -1,14 +1,17 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { api } from "@/utils/api";
 
 const SupplierForm = () => {
+  const [availableProductTypes, setAvailableProductTypes] = useState([]);
+
   const [formData, setFormData] = useState({
     sup_name: "",
     sup_address: "",
     sup_email: "",
     sup_password: "",
     sup_phone: "",
+    productTypesCount: 0,
+    productTypes: Array.from({ length: 10 }, () => ""),
   });
 
   const handleInputChange = (e) => {
@@ -16,6 +19,16 @@ const SupplierForm = () => {
     setFormData({
       ...formData,
       [name]: value,
+    });
+  };
+
+  const handleProductTypeChange = (index, e) => {
+    const { value } = e.target;
+    const updatedProductTypes = [...formData.productTypes];
+    updatedProductTypes[index] = value;
+    setFormData({
+      ...formData,
+      productTypes: updatedProductTypes,
     });
   };
 
@@ -39,6 +52,43 @@ const SupplierForm = () => {
       setSubmissionStatus("error");
       console.error("Error: ", error);
     }
+  };
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/v1/supProd")
+      .then((response) => response.json())
+      .then((data) => {
+        setAvailableProductTypes(data.supProd || []);
+      })
+      .catch((error) => {
+        console.error("Error fetching product types:", error);
+      });
+  }, []);
+
+  const renderProductTypeSelectBoxes = () => {
+    const { productTypesCount, productTypes } = formData;
+    const selectBoxes = [];
+
+    for (let i = 0; i < productTypesCount; i++) {
+      selectBoxes.push(
+        <div key={i}>
+          <select
+            onChange={(e) => handleProductTypeChange(i, e)}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-100 p-2.5"
+            required
+          >
+            <option value="">Select Product Type</option>
+            {availableProductTypes.map((type, index) => (
+              <option key={type._id} value={type.name}>
+                {type.name}
+              </option>
+            ))}
+          </select>
+        </div>
+      );
+    }
+
+    return selectBoxes;
   };
 
   return (
@@ -104,11 +154,11 @@ const SupplierForm = () => {
             />
           </div>
 
-          <div className="flex space-x-4">
-            <div className="w-full">
+          <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label
                 htmlFor="sup_phone"
-                className="block mb-1 text-sm font-medium text-black-500"
+                className="block text-gray-700 text-sm font-bold mb-2"
               >
                 Supplier Phone-Number
               </label>
@@ -116,17 +166,16 @@ const SupplierForm = () => {
                 type="text"
                 name="sup_phone"
                 id="sup_phone"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 value={formData.sup_phone}
                 onChange={handleInputChange}
                 required
               />
             </div>
-
-            <div className="w-full">
+            <div className="w-full md:w-1/2 px-3">
               <label
                 htmlFor="sup_password"
-                className="block mb-1 text-sm font-medium text-black-500"
+                className="block text-gray-700 text-sm font-bold mb-2"
               >
                 Supplier Password
               </label>
@@ -134,7 +183,7 @@ const SupplierForm = () => {
                 type="password"
                 name="sup_password"
                 id="sup_password"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 value={formData.sup_password}
                 onChange={handleInputChange}
                 required
@@ -142,6 +191,30 @@ const SupplierForm = () => {
             </div>
           </div>
 
+          <div className="mb-6">
+            <label
+              htmlFor="productTypesCount"
+              className="block text-gray-700 text-sm font-bold mb-2"
+            >
+              Number of Product Types
+            </label>
+            <select
+              name="productTypesCount"
+              id="productTypesCount"
+              className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              value={formData.productTypesCount}
+              onChange={handleInputChange}
+              required
+            >
+              <option value="">Select Number of Product Types</option>
+              {[...Array(10)].map((_, index) => (
+                <option key={index} value={index + 1}>
+                  {index + 1}
+                </option>
+              ))}
+            </select>
+          </div>
+          {renderProductTypeSelectBoxes()}
           <button
             type="submit"
             className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"

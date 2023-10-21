@@ -14,6 +14,7 @@ import { supplierRouter } from "./routes/supplier.js";
 import { supplierProductRouter } from "./routes/supplierProduct.js";
 import { customerRouter } from "./routes/customer.js";
 import { jobRouter } from "./routes/job.js";
+import { supProdRouter } from "./routes/supProd.js";
 import { notFound } from "./middleware/not-found.js";
 import { errorHandlerMiddleware } from "./middleware/error-handler.js";
 import employeeRouter from "./routes/employee.js";
@@ -43,6 +44,7 @@ app.use("/api/v1/customer", customerRouter);
 app.use("/api/v1/job", jobRouter);
 app.use('/api/v1/employee', employeeRouter);
 app.use('/api/v1/leave', leaveRouter);
+app.use('/api/v1/supProd', supProdRouter)
 
 // Custom error handlers
 app.use(notFound);
