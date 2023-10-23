@@ -38,7 +38,17 @@ const SupplierForm = () => {
     e.preventDefault();
 
     try {
-      const response = await api.post("/supplier", formData);
+      const productTypesIds = formData.productTypes.map((type) => {
+        const matchedType = availableProductTypes.find(
+          (prod) => prod.name === type
+        );
+        return matchedType ? matchedType._id : null;
+      });
+
+      const response = await api.post("/supplier", {
+        ...formData,
+        offeredProductTypes: productTypesIds.filter((id) => id),
+      });
 
       if (response.status === 201) {
         // Data successfully posted to mongo

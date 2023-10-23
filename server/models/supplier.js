@@ -24,6 +24,9 @@ const SupplierSchema = new mongoose.Schema({
     unique: true,
     // required: true,
   },
+  offeredProductTypes: [
+    { type: mongoose.Schema.Types.ObjectId, ref: "SupProd" },
+  ],
 });
 
 const Supplier = mongoose.model("Supplier", SupplierSchema);
