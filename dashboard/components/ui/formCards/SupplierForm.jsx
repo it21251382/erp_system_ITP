@@ -112,6 +112,7 @@ const SupplierForm = () => {
           <h5 className="text-xl font-medium text-black-500">
             Supplier Information
           </h5>
+          <div className="grid grid-cols-2 gap-4">
           <div>
             <label
               for="sup_name"
@@ -164,8 +165,8 @@ const SupplierForm = () => {
             />
           </div>
 
-          <div className="flex flex-wrap -mx-3 mb-6">
-            <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <div>
+            
               <label
                 htmlFor="sup_phone"
                 className="block text-gray-700 text-sm font-bold mb-2"
@@ -182,23 +183,7 @@ const SupplierForm = () => {
                 required
               />
             </div>
-            <div className="w-full md:w-1/2 px-3">
-              <label
-                htmlFor="sup_password"
-                className="block text-gray-700 text-sm font-bold mb-2"
-              >
-                Supplier Password
-              </label>
-              <input
-                type="password"
-                name="sup_password"
-                id="sup_password"
-                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                value={formData.sup_password}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
+            
           </div>
 
           <div className="mb-6">
@@ -231,6 +216,7 @@ const SupplierForm = () => {
           >
             Save
           </button>
+          
         </form>
       )}
     </div>

@@ -123,16 +123,6 @@ const SupplierUpdate = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 font-bold">Password:</label>
-            <input
-              type="text"
-              name="sup_password"
-              value={supplierData.sup_password}
-              onChange={handleInputChange}
-              className="border border-gray-300 rounded-lg px-3 py-2 w-full"
-            />
-          </div>
-          <div className="mb-4">
             <label className="block text-gray-700 font-bold">Phone:</label>
             <input
               type="text"
